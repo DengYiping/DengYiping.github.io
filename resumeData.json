@@ -51,7 +51,7 @@
         "school":"Jacobs University Bremen",
         "degree":"BCs Computer Science",
         "graduated":"June 2020",
-        "description":"Top of Computer Science class. Minor in Mathematics. Published paper about Hilbert's Tenth Problem."
+        "description":"Extensive course in Haskell, C and C++ programming, top student in Computer Science and Math. Guided research in Hilbert 10’s problem and automatic theorem proving, finished Machine Learning course"
       }
     ],
     "work":[
@@ -59,7 +59,7 @@
         "company":"Ubimax GmbH",
         "title":"Machine Learning Engineer Intern",
         "years":"June 2018 - Present",
-        "description":"Designing Customizable Machine Learning Training/Deploying system for wearable devices. Augmented Reality integration with Machine Learning system"
+        "description":"Built image classifier training/deploying/evaluating system on AR devices(Google Glass Enterprise/ Vuzix M300). Full-stack development, machine learning research focusing on image classification/object detection."
       },
       {
         "company":"Jacobs University Bremen Mathematics Department",
@@ -70,12 +70,12 @@
         "company":"Google Code-in 2017",
         "title":"Mentor",
         "years":"November 2017 - January 2018",
-        "description":"Guided middle school students contributing in open source project.  Responsible for monitoring,reviewing and fixing the code contributed by students."
+        "description":"Guided research, Hilbert Tenth Problem proof formalization using Isabelle, proved DPRM theorem. Co-authoring of paper & presentation: Hilbert Meets Isabelle - FLoC 2018"
       },{
         "company":"Tsinghua University Software Security Lab",
         "title":"Software Engineer Intern",
         "years":"June 2016 - November 2016",
-        "description":"Invented code clone detection system distributed algorithm. Implemented real-time database security management system."
+        "description":"Implemented code clone detection system(binary code clone detection based on AC automata). Implemented database security management system and crawler for GitHub in Scala(both based on Akka)."
       },{
         "company":"Google Code-in 2016",
         "title":"Mentor",
@@ -102,19 +102,19 @@
       },
       {
         "name":"Java",
-        "level":"80%"
+        "level":"82%"
       },
       {
         "name":"C++",
-        "level":"80%"
+        "level":"83%"
       },
       {
         "name":"Python",
-        "level":"80%"
+        "level":"84%"
       },
       {
         "name":"Javascript",
-        "level":"70%"
+        "level":"75%"
       },
       {
         "name":"Docker",
@@ -122,7 +122,7 @@
       },
       {
         "name":"ReactJs",
-        "level":"50%"
+        "level":"60%"
       },
       {
         "name":"Spark",
@@ -143,7 +143,31 @@
       {
         "name":"MariaDB",
         "level":"70%"
-      }
+      },
+        {
+            "name": "Git",
+            "level": "85%"
+        },
+        {
+            "name": "Azure",
+            "level": "45%"
+        },
+        {
+            "name": "Spring Boot",
+            "level": "70%"
+        },
+        {
+            "name": "PyTorch",
+            "level": "45%"
+        },
+        {
+            "name": "TensorFlow",
+            "level": "50%"
+        },
+        {
+            "name": "Numpy",
+            "level": "70%"
+        }
     ]
   },
   "portfolio":{
