@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="'en'" xml:lang="'en'">
 <head>
-<!-- 2018-08-17 Fri 01:39 -->
+<!-- 2018-09-08 Sat 22:03 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>&lrm;</title>
@@ -232,6 +232,28 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
 </head>
 <body>
 <div id="content">
@@ -239,138 +261,160 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org0e5ae1b">1. algorithms</a>
+<li><a href="#orgf1b4c16">1. algorithms</a>
 <ul>
-<li><a href="#org00d6b94">1.1. graph algorithms</a>
+<li><a href="#org884a3ce">1.1. graph algorithms</a>
 <ul>
-<li><a href="#orgbd2a0e2">1.1.1. bredth first search</a></li>
-<li><a href="#orgbc08372">1.1.2. depth first search</a></li>
-<li><a href="#orgda915f3">1.1.3. minimal spanning tree</a></li>
-<li><a href="#org29bc9d7">1.1.4. dijkstra</a></li>
+<li><a href="#org2cf2c90">1.1.1. bredth first search</a></li>
+<li><a href="#org7612943">1.1.2. depth first search</a></li>
+<li><a href="#org57cb540">1.1.3. minimal spanning tree</a></li>
+<li><a href="#org2740653">1.1.4. dijkstra</a></li>
 </ul>
 </li>
-<li><a href="#orgdd94299">1.2. sorting</a>
+<li><a href="#org9e60a36">1.2. sorting</a>
 <ul>
-<li><a href="#org5e9d465">1.2.1. quick sort</a></li>
-<li><a href="#orgfdd0a50">1.2.2. merge sort</a></li>
-<li><a href="#org8cc0f69">1.2.3. heap sort</a></li>
+<li><a href="#orgd18c1ff">1.2.1. quick sort</a></li>
+<li><a href="#org4cbb83b">1.2.2. merge sort</a></li>
+<li><a href="#org4ddddb6">1.2.3. heap sort</a></li>
+<li><a href="#org9445196">1.2.4. counting sort</a></li>
 </ul>
 </li>
-<li><a href="#orgd4b553f">1.3. binary search</a></li>
-<li><a href="#org6dbef7e">1.4. divide &amp; conquer</a></li>
-<li><a href="#org4b6f8e5">1.5. backtracking</a></li>
-<li><a href="#orgcd81cf7">1.6. two pointers</a></li>
-<li><a href="#org270e5a7">1.7. dynamic programming</a></li>
-<li><a href="#orgcd2168f">1.8. scan-line algorithm</a></li>
-<li><a href="#orgb15361a">1.9. greedy algorithm</a></li>
-<li><a href="#org9c23628">1.10. string search</a>
+<li><a href="#org5518180">1.3. binary search</a></li>
+<li><a href="#orgd8b3da1">1.4. divide &amp; conquer</a></li>
+<li><a href="#org5a4c8a0">1.5. backtracking</a></li>
+<li><a href="#org186f787">1.6. two pointers</a></li>
+<li><a href="#org03be2d8">1.7. dynamic programming</a></li>
+<li><a href="#org4a30d28">1.8. sweep line algorithm</a></li>
+<li><a href="#org36aefdc">1.9. greedy algorithm</a></li>
+<li><a href="#org0049a35">1.10. string search</a>
 <ul>
-<li><a href="#org374a3cb">1.10.1. aho corasick algorithm</a></li>
-<li><a href="#orgbcc995f">1.10.2. kmp algorithm</a></li>
-<li><a href="#orga107063">1.10.3. boyer-moore</a></li>
+<li><a href="#orgd8bfd6e">1.10.1. general approach to most substring problem</a></li>
+<li><a href="#org934c923">1.10.2. aho corasick algorithm</a></li>
+<li><a href="#org53c31ae">1.10.3. kmp algorithm</a></li>
+<li><a href="#org4b57cc6">1.10.4. boyer-moore</a></li>
 </ul>
 </li>
-<li><a href="#orgb30b48e">1.11. techniques</a></li>
-<li><a href="#org585812a">1.12. math</a>
+<li><a href="#orgebae5b3">1.11. techniques</a></li>
+<li><a href="#org54fb0eb">1.12. math</a>
 <ul>
-<li><a href="#orgea18022">1.12.1. permutation</a></li>
-<li><a href="#org65da918">1.12.2. pigeonhole principle</a></li>
-<li><a href="#org07d1da1">1.12.3. add minus mulitiplication divide pow</a></li>
-<li><a href="#org5eaf1e8">1.12.4. matrix operation</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#org24244d5">2. data strcture</a>
-<ul>
-<li><a href="#org7804633">2.1. stack</a></li>
-<li><a href="#orgfb20b61">2.2. queue</a></li>
-<li><a href="#orgdd13e0e">2.3. linked list</a></li>
-<li><a href="#orgd734a71">2.4. array</a></li>
-<li><a href="#org7a12527">2.5. hash table</a></li>
-<li><a href="#org813e15e">2.6. binary tree</a></li>
-<li><a href="#orga334e8f">2.7. heap</a></li>
-<li><a href="#org66af8c6">2.8. union find</a></li>
-<li><a href="#org6cf81cd">2.9. trie</a></li>
-</ul>
-</li>
-<li><a href="#org280f349">3. design pattern</a></li>
-<li><a href="#org451294d">4. system design</a></li>
-<li><a href="#orgcf24519">5. operating system</a></li>
-<li><a href="#org647efb6">6. language</a>
-<ul>
-<li><a href="#org8215d8b">6.1. C++</a>
-<ul>
-<li><a href="#orgb35b26b">6.1.1. speedup code</a></li>
+<li><a href="#org42ea128">1.12.1. permutation</a></li>
+<li><a href="#orgf5ad975">1.12.2. pigeonhole principle</a></li>
+<li><a href="#org0d719b8">1.12.3. add minus mulitiplication divide pow</a></li>
+<li><a href="#org2fd8147">1.12.4. matrix operation</a></li>
+<li><a href="#org7bb8ba2">1.12.5. edit distance</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgf6d185c">7. database</a></li>
+<li><a href="#org6ae6ffe">2. data strcture</a>
+<ul>
+<li><a href="#org20f88ea">2.1. stack</a></li>
+<li><a href="#org96129fa">2.2. queue</a></li>
+<li><a href="#org47295e4">2.3. linked list</a></li>
+<li><a href="#org2ff11dc">2.4. array</a></li>
+<li><a href="#orge104913">2.5. hash table</a></li>
+<li><a href="#org533f44d">2.6. binary tree</a>
+<ul>
+<li><a href="#org7eca296">2.6.1. binary search tree</a></li>
+</ul>
+</li>
+<li><a href="#orgedd4241">2.7. heap</a></li>
+<li><a href="#orgc8a5a2c">2.8. union find</a></li>
+<li><a href="#org0a8b056">2.9. trie</a></li>
+<li><a href="#org2080633">2.10. segment tree</a></li>
+</ul>
+</li>
+<li><a href="#org2bbb685">3. design pattern</a></li>
+<li><a href="#orgc749b12">4. system design</a></li>
+<li><a href="#orgdc5351d">5. operating system</a></li>
+<li><a href="#org17e3646">6. programming language</a>
+<ul>
+<li><a href="#org7b6a093">6.1. C++</a>
+<ul>
+<li><a href="#org0c541fa">6.1.1. speedup code</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgc820852">7. database</a></li>
 </ul>
 </div>
 </div>
-<div id="outline-container-org0e5ae1b" class="outline-2">
-<h2 id="org0e5ae1b"><span class="section-number-2">1</span> algorithms</h2>
+<div id="outline-container-orgf1b4c16" class="outline-2">
+<h2 id="orgf1b4c16"><span class="section-number-2">1</span> algorithms</h2>
 <div class="outline-text-2" id="text-1">
 </div>
-<div id="outline-container-org00d6b94" class="outline-3">
-<h3 id="org00d6b94"><span class="section-number-3">1.1</span> graph algorithms</h3>
+<div id="outline-container-org884a3ce" class="outline-3">
+<h3 id="org884a3ce"><span class="section-number-3">1.1</span> graph algorithms</h3>
 <div class="outline-text-3" id="text-1-1">
 </div>
-<div id="outline-container-orgbd2a0e2" class="outline-4">
-<h4 id="orgbd2a0e2"><span class="section-number-4">1.1.1</span> bredth first search</h4>
+<div id="outline-container-org2cf2c90" class="outline-4">
+<h4 id="org2cf2c90"><span class="section-number-4">1.1.1</span> bredth first search</h4>
 </div>
-<div id="outline-container-orgbc08372" class="outline-4">
-<h4 id="orgbc08372"><span class="section-number-4">1.1.2</span> depth first search</h4>
+<div id="outline-container-org7612943" class="outline-4">
+<h4 id="org7612943"><span class="section-number-4">1.1.2</span> depth first search</h4>
 </div>
-<div id="outline-container-orgda915f3" class="outline-4">
-<h4 id="orgda915f3"><span class="section-number-4">1.1.3</span> minimal spanning tree</h4>
+<div id="outline-container-org57cb540" class="outline-4">
+<h4 id="org57cb540"><span class="section-number-4">1.1.3</span> minimal spanning tree</h4>
 <div class="outline-text-4" id="text-1-1-3">
 </div>
 <ol class="org-ol">
-<li><a id="org00d81da"></a>Prim<br /></li>
-<li><a id="org3beb5d5"></a>Kruskal<br /></li>
+<li><a id="org82ca4c2"></a>Prim<br /></li>
+<li><a id="org39a4e3d"></a>Kruskal<br /></li>
 </ol>
 </div>
-<div id="outline-container-org29bc9d7" class="outline-4">
-<h4 id="org29bc9d7"><span class="section-number-4">1.1.4</span> dijkstra</h4>
+<div id="outline-container-org2740653" class="outline-4">
+<h4 id="org2740653"><span class="section-number-4">1.1.4</span> dijkstra</h4>
 </div>
 </div>
-<div id="outline-container-orgdd94299" class="outline-3">
-<h3 id="orgdd94299"><span class="section-number-3">1.2</span> sorting</h3>
+<div id="outline-container-org9e60a36" class="outline-3">
+<h3 id="org9e60a36"><span class="section-number-3">1.2</span> sorting</h3>
 <div class="outline-text-3" id="text-1-2">
 </div>
-<div id="outline-container-org5e9d465" class="outline-4">
-<h4 id="org5e9d465"><span class="section-number-4">1.2.1</span> quick sort</h4>
-</div>
-<div id="outline-container-orgfdd0a50" class="outline-4">
-<h4 id="orgfdd0a50"><span class="section-number-4">1.2.2</span> merge sort</h4>
-</div>
-<div id="outline-container-org8cc0f69" class="outline-4">
-<h4 id="org8cc0f69"><span class="section-number-4">1.2.3</span> heap sort</h4>
+<div id="outline-container-orgd18c1ff" class="outline-4">
+<h4 id="orgd18c1ff"><span class="section-number-4">1.2.1</span> quick sort</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<p>
+<a href="https://leetcode.com/problems/sort-colors/description/">leetcode 75</a>
+</p>
 </div>
 </div>
-<div id="outline-container-orgd4b553f" class="outline-3">
-<h3 id="orgd4b553f"><span class="section-number-3">1.3</span> binary search</h3>
+<div id="outline-container-org4cbb83b" class="outline-4">
+<h4 id="org4cbb83b"><span class="section-number-4">1.2.2</span> merge sort</h4>
+</div>
+<div id="outline-container-org4ddddb6" class="outline-4">
+<h4 id="org4ddddb6"><span class="section-number-4">1.2.3</span> heap sort</h4>
+</div>
+<div id="outline-container-org9445196" class="outline-4">
+<h4 id="org9445196"><span class="section-number-4">1.2.4</span> counting sort</h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+<a href="https://leetcode.com/problems/sort-colors/description/">leetcode 72</a>
+This is a effective sorting algorithms.
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org5518180" class="outline-3">
+<h3 id="org5518180"><span class="section-number-3">1.3</span> binary search</h3>
 <div class="outline-text-3" id="text-1-3">
 <p>
-<a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">leetcode 33</a>
+<a href="https://leetcode.com/problems/search-in-rotated-sorted-array/">leetcode 33</a> <a href="https://leetcode.com/problems/search-in-rotated-sorted-array-ii/description/">leetcode 81</a>
 </p>
 <div class="org-src-container">
-<pre class="src src-c++" id="org535f8fd"><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">binary_search</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #bc6ec5;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #bc6ec5;">&gt;</span>&amp; <span style="color: #7590db;">nums</span><span style="color: #4f97d7;">){</span>
+<pre class="src src-c++" id="org1282f69"><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">binary_search</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #bc6ec5;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #bc6ec5;">&gt;</span>&amp; <span style="color: #7590db;">nums</span><span style="color: #4f97d7;">){</span>
   <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">lo</span> = <span style="color: #a45bad;">0</span>;
   <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">hi</span> = nums.size<span style="color: #bc6ec5;">()</span> - <span style="color: #a45bad;">1</span>;
-  <span style="color: #4f97d7; font-weight: bold;">while</span><span style="color: #bc6ec5;">(</span>lo &lt;= hi<span style="color: #bc6ec5;">){</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #bc6ec5;">(</span>lo &lt;= hi<span style="color: #bc6ec5;">){</span>
     <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">mid</span> = lo + <span style="color: #2d9574;">(</span>hi - lo<span style="color: #2d9574;">)</span> / <span style="color: #a45bad;">2</span>;
-    <span style="color: #4f97d7; font-weight: bold;">if</span><span style="color: #2d9574;">(</span>nums<span style="color: #67b11d;">[</span>mid<span style="color: #67b11d;">]</span> == target<span style="color: #2d9574;">)</span>
-      <span style="color: #4f97d7; font-weight: bold;">return</span> target;
-    <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #4f97d7; font-weight: bold;">if</span><span style="color: #2d9574;">(</span>nums<span style="color: #67b11d;">[</span>mid<span style="color: #67b11d;">]</span> &lt; target<span style="color: #2d9574;">){</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span>nums<span style="color: #67b11d;">[</span>mid<span style="color: #67b11d;">]</span> == target<span style="color: #2d9574;">)</span>
+      <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> target;
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span>nums<span style="color: #67b11d;">[</span>mid<span style="color: #67b11d;">]</span> &lt; target<span style="color: #2d9574;">){</span>
       lo = mid + <span style="color: #a45bad;">1</span>;
-    <span style="color: #2d9574;">}</span> <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #2d9574;">{</span>
+    <span style="color: #2d9574;">}</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #2d9574;">{</span>
       hi = mid - <span style="color: #a45bad;">1</span>;
     <span style="color: #2d9574;">}</span>
-    <span style="color: #4f97d7; font-weight: bold;">return</span> -<span style="color: #a45bad;">1</span>; <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">not found</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> -<span style="color: #a45bad;">1</span>; <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">not found</span>
   <span style="color: #bc6ec5;">}</span>
 <span style="color: #4f97d7;">}</span>
 </pre>
@@ -378,16 +422,54 @@ for the JavaScript code in this tag.
 <p>
 The code above is a while loop based binary search. The total running time is O(n log n). 
 </p>
+
+<p>
+For changed question like find in rotated sorted array, there are two approaches.
+First, we can directly find, break into cases where nums[mid] &gt; nums[hi],
+nums[mid] = nums[hi], nums[mid] &lt; nums[hi], and apply binary search
+accordingly.
+Second, we can also find the point of rotation and use the normal binary
+search with a bijective mapping.
+</p>
 </div>
 </div>
-<div id="outline-container-org6dbef7e" class="outline-3">
-<h3 id="org6dbef7e"><span class="section-number-3">1.4</span> divide &amp; conquer</h3>
+
+<div id="outline-container-orgd8b3da1" class="outline-3">
+<h3 id="orgd8b3da1"><span class="section-number-3">1.4</span> divide &amp; conquer</h3>
+<div class="outline-text-3" id="text-1-4">
+<p>
+<a href="https://leetcode.com/problems/largest-rectangle-in-histogram/description/">leetcode 84</a>
+Two typical example of divide and conquer algorithms:
+</p>
+<ol class="org-ol">
+<li>Maximum subarray</li>
+</ol>
+<p>
+Maximum subarray problem is closely associated with our life. Imagine if you know the future stock market prices for a given
+period, and you want to maximize your profit.(Decide the optimum point to buy and sell). You are only allowed to
+do such operation once.
+The Stock price is given as a array with each entry representing the market price at that day.
+To tackle the problem, our first step is to precompute the difference between two days. A n element array
+will lead to a difference array of n - 1 items.
+Then we find a subarray that maximize the sum.
+Idea is, for any given point in the array, the maximum is either at the right side of the point, left side of the point
+or span across the point. Using this, we can build a recursion.
+</p>
+
+<ol class="org-ol">
+<li>Largest Rectangle in Histogram</li>
+</ol>
+<p>
+This problem can be solved similarly to question 1, we expand greedily, divide across three cases.
+</p>
 </div>
-<div id="outline-container-org4b6f8e5" class="outline-3">
-<h3 id="org4b6f8e5"><span class="section-number-3">1.5</span> backtracking</h3>
+</div>
+<div id="outline-container-org5a4c8a0" class="outline-3">
+<h3 id="org5a4c8a0"><span class="section-number-3">1.5</span> backtracking</h3>
 <div class="outline-text-3" id="text-1-5">
 <p>
 <a href="https://leetcode.com/problems/combination-sum/description/">leetcode 39</a> <a href="https://leetcode.com/problems/combination-sum-ii/description/">leetcode 40</a> <a href="https://leetcode.com/problems/permutations/discuss/18247/My-elegant-recursive-C++-solution-with-inline-explanation">leetcode 46</a> <a href="https://leetcode.com/problems/permutations/discuss/18239/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partioning)">general approach</a>  
+<a href="https://leetcode.com/problems/n-queens/description/">leetcode 51</a> <a href="https://leetcode.com/problems/n-queens-ii/">leetcode 52</a> <a href="https://leetcode.com/problems/subsets/description/">leetcode 78</a>
 Backtracking is just a DFS. Upon failure, we go back and find other possiblities.
 One easy to explain example is Sodoku solver, we eagerly find all the possible solutions and quit.
 This <a href="https://leetcode.com/problems/combination-sum/discuss/16502/A-general-approach-to-backtracking-questions-in-Java-(Subsets-Permutations-Combination-Sum-Palindrome-Partitioning)">link</a> gives a summary of backtracking.
@@ -398,25 +480,53 @@ In C++, one trick to obtimize the solution is to pass the aggregator as referenc
 result.(Just push the result in first, and pop it out later)
 Another way to obtimize is to use a loop to extend the selection process.(partially expand the recursion)
 </p>
-</div>
-</div>
-<div id="outline-container-orgcd81cf7" class="outline-3">
-<h3 id="orgcd81cf7"><span class="section-number-3">1.6</span> two pointers</h3>
-</div>
-<div id="outline-container-org270e5a7" class="outline-3">
-<h3 id="org270e5a7"><span class="section-number-3">1.7</span> dynamic programming</h3>
-<div class="outline-text-3" id="text-1-7">
+
 <p>
-<a href="https://leetcode.com/problems/longest-valid-parentheses/description/">leetcode 31</a>
-Just store it in a array so that we don't repeat computations.
+Queen Problem is also one of the backtracking problem. The general idea is the same, goin, if it doesn't work, recover.
 </p>
 </div>
 </div>
-<div id="outline-container-orgcd2168f" class="outline-3">
-<h3 id="orgcd2168f"><span class="section-number-3">1.8</span> scan-line algorithm</h3>
+<div id="outline-container-org186f787" class="outline-3">
+<h3 id="org186f787"><span class="section-number-3">1.6</span> two pointers</h3>
+<div class="outline-text-3" id="text-1-6">
+<p>
+<a href="https://leetcode.com/problems/minimum-window-substring/description/">leetcode 76</a> <a href="https://leetcode.com/problems/container-with-most-water/description/">leetcode 11</a>
+The problem with sum(twe sum, three sum, four sum.)
+All these can be solved using two pointers. First sort, and then find.
+Also, there are certain type of substring search problem that can also be
+solved using two pointers.(Leetcode 76)
+</p>
+
+<p>
+Leetcode 11 is a typical example of two pointer problems. You are ask to maximize the water it can hold.
+Idea/Proof:
+</p>
+<ol class="org-ol">
+<li>The widest container (using first and last line) is a good candidate, because of its width. Its water level is the height of the smaller one of first and last line.</li>
+<li>All other containers are less wide and thus would need a higher water level in order to hold more water.</li>
+<li>The smaller one of first and last line doesn't support a higher water level and can thus be safely removed from further consideration.</li>
+</ol>
 </div>
-<div id="outline-container-orgb15361a" class="outline-3">
-<h3 id="orgb15361a"><span class="section-number-3">1.9</span> greedy algorithm</h3>
+</div>
+<div id="outline-container-org03be2d8" class="outline-3">
+<h3 id="org03be2d8"><span class="section-number-3">1.7</span> dynamic programming</h3>
+<div class="outline-text-3" id="text-1-7">
+<p>
+<a href="https://leetcode.com/problems/longest-valid-parentheses/description/">leetcode 31</a> <a href="https://leetcode.com/problems/unique-paths/description/">leetcode 62</a> <a href="https://leetcode.com/problems/unique-paths-ii/description/">leetcode 63</a> <a href="https://leetcode.com/problems/edit-distance/discuss/25846/20ms-Detailed-Explained-C++-Solutions-(O(n)-Space)">leetcode 72</a>
+Just store it in a array so that we don't repeat computations.
+</p>
+
+<p>
+Also, in some cases, buttom-up approach might lead to better run time(because we don't have a stack).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org4a30d28" class="outline-3">
+<h3 id="org4a30d28"><span class="section-number-3">1.8</span> sweep line algorithm</h3>
+</div>
+<div id="outline-container-org36aefdc" class="outline-3">
+<h3 id="org36aefdc"><span class="section-number-3">1.9</span> greedy algorithm</h3>
 <div class="outline-text-3" id="text-1-9">
 <p>
 <a href="https://leetcode.com/problems/jump-game-ii/description/">leetcode 45</a>
@@ -427,16 +537,152 @@ lead to O(n<sup>2</sup>) algorithms. We can combine the idea of greedy algorithm
 </div>
 </div>
 
-<div id="outline-container-org9c23628" class="outline-3">
-<h3 id="org9c23628"><span class="section-number-3">1.10</span> string search</h3>
+<div id="outline-container-org0049a35" class="outline-3">
+<h3 id="org0049a35"><span class="section-number-3">1.10</span> string search</h3>
 <div class="outline-text-3" id="text-1-10">
 </div>
-<div id="outline-container-org374a3cb" class="outline-4">
-<h4 id="org374a3cb"><span class="section-number-4">1.10.1</span> aho corasick algorithm</h4>
+<div id="outline-container-orgd8bfd6e" class="outline-4">
+<h4 id="orgd8bfd6e"><span class="section-number-4">1.10.1</span> general approach to most substring problem</h4>
+<div class="outline-text-4" id="text-1-10-1">
+<p>
+<a href="https://leetcode.com/problems/minimum-window-substring/description/">leetcode 76</a>
+</p>
+
+<p>
+Solution is straight forward, idea is matching from the right,
+and then shrink if possible, if not, continue moving the right.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #ce537a; font-weight: bold;">Solution</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+    <span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #bc6ec5; font-weight: bold;">minWindow</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">s</span>, <span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">t</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span> <span style="color: #7590db;">map</span><span style="color: #2d9574;">(</span><span style="color: #a45bad;">128</span>, <span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">a hashmap</span>
+
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">char</span> <span style="color: #7590db;">c</span>:t<span style="color: #2d9574;">)</span> <span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #2d9574;">[</span>c<span style="color: #2d9574;">]</span>++; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">count the number</span>
+
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">left</span> = <span style="color: #a45bad;">0</span>, <span style="color: #7590db;">right</span> = <span style="color: #a45bad;">0</span>, <span style="color: #7590db;">counter</span> = t.size<span style="color: #2d9574;">()</span>, <span style="color: #7590db;">min</span> = <span style="color: #a45bad;">0x7fffffff</span>, <span style="color: #7590db;">head</span> = <span style="color: #a45bad;">0</span>;
+
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #2d9574;">(</span>right &lt; s.size<span style="color: #67b11d;">()</span><span style="color: #2d9574;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span><span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #b1951d;">[</span>s<span style="color: #4f97d7;">[</span>right++<span style="color: #4f97d7;">]</span><span style="color: #b1951d;">]</span>-- &gt; <span style="color: #a45bad;">0</span><span style="color: #67b11d;">)</span> counter--; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">reduce both the counter and the map</span>
+
+            <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">possible solution, try to shrink the answer</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #67b11d;">(</span>counter == <span style="color: #a45bad;">0</span><span style="color: #67b11d;">){</span>
+                <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">repeat if valid</span>
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #b1951d;">(</span><span style="color: #4f97d7;">(</span>right - left<span style="color: #4f97d7;">)</span> &lt; min<span style="color: #b1951d;">){</span>
+                    min = right - <span style="color: #4f97d7;">(</span>head = left<span style="color: #4f97d7;">)</span>;
+                <span style="color: #b1951d;">}</span>
+
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #b1951d;">(</span><span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #4f97d7;">[</span>s<span style="color: #bc6ec5;">[</span>left++<span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">]</span>++ == <span style="color: #a45bad;">0</span><span style="color: #b1951d;">){</span>
+                        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">if it is a character required by t, make it invalid</span>
+                        counter++;
+                <span style="color: #b1951d;">}</span>
+            <span style="color: #67b11d;">}</span>
+        <span style="color: #2d9574;">}</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> min == <span style="color: #a45bad;">0x7fffffff</span> ? <span style="color: #2d9574;">""</span> : s.substr<span style="color: #2d9574;">(</span>head, min<span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>;
+</pre>
 </div>
-<div id="outline-container-orgbcc995f" class="outline-4">
-<h4 id="orgbcc995f"><span class="section-number-4">1.10.2</span> kmp algorithm</h4>
-<div class="outline-text-4" id="text-1-10-2">
+<p>
+I will first give the solution then show you the magic template.
+</p>
+
+<p>
+The code of solving this problem is below. 
+It might be the shortest among all solutions provided in Discuss.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #bc6ec5; font-weight: bold;">minWindow</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">s</span>, <span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">t</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+        <span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #bc6ec5;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #bc6ec5;">&gt;</span> <span style="color: #7590db;">map</span><span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">128</span>,<span style="color: #a45bad;">0</span><span style="color: #bc6ec5;">)</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #bc6ec5;">(</span><span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> <span style="color: #7590db;">c</span>: t<span style="color: #bc6ec5;">)</span> <span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #bc6ec5;">[</span>c<span style="color: #bc6ec5;">]</span>++;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">counter</span>=t.size<span style="color: #bc6ec5;">()</span>, <span style="color: #7590db;">begin</span>=<span style="color: #a45bad;">0</span>, <span style="color: #7590db;">end</span>=<span style="color: #a45bad;">0</span>, <span style="color: #7590db;">d</span>=INT_MAX, <span style="color: #7590db;">head</span>=<span style="color: #a45bad;">0</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #bc6ec5;">(</span>end&lt;s.size<span style="color: #2d9574;">()</span><span style="color: #bc6ec5;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #67b11d;">[</span>s<span style="color: #b1951d;">[</span>end++<span style="color: #b1951d;">]</span><span style="color: #67b11d;">]</span>--&gt;<span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span> counter--; <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">in t</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #2d9574;">(</span>counter==<span style="color: #a45bad;">0</span><span style="color: #2d9574;">){</span> <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">valid</span>
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span>end-begin&lt;d<span style="color: #67b11d;">)</span>  d=end-<span style="color: #67b11d;">(</span>head=begin<span style="color: #67b11d;">)</span>;
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span><span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #b1951d;">[</span>s<span style="color: #4f97d7;">[</span>begin++<span style="color: #4f97d7;">]</span><span style="color: #b1951d;">]</span>++==<span style="color: #a45bad;">0</span><span style="color: #67b11d;">)</span> counter++;  <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">make it invalid</span>
+            <span style="color: #2d9574;">}</span>  
+        <span style="color: #bc6ec5;">}</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> d==INT_MAX? <span style="color: #2d9574;">""</span>:s.substr<span style="color: #bc6ec5;">(</span>head, d<span style="color: #bc6ec5;">)</span>;
+    <span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+For most substring problem, we are given a string
+and need to find a substring of it which satisfy some restrictions.
+A general way is to use a hashmap assisted with two pointers.
+The template is given below.
+</p>
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">findSubstring</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">s</span><span style="color: #4f97d7;">){</span>
+        <span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #bc6ec5;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #bc6ec5;">&gt;</span> <span style="color: #7590db;">map</span><span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">128</span>,<span style="color: #a45bad;">0</span><span style="color: #bc6ec5;">)</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">counter</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">check whether the substring is valid</span>
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">begin</span>=<span style="color: #a45bad;">0</span>, <span style="color: #7590db;">end</span>=<span style="color: #a45bad;">0</span>; <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">two pointers, one point to tail and one head</span>
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">d</span>; <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">the length of substring</span>
+
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #bc6ec5;">()</span> <span style="color: #bc6ec5;">{</span> <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">initialize the hash map here */</span> <span style="color: #bc6ec5;">}</span>
+
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #bc6ec5;">(</span>end&lt;s.size<span style="color: #2d9574;">()</span><span style="color: #bc6ec5;">){</span>
+
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #67b11d;">[</span>s<span style="color: #b1951d;">[</span>end++<span style="color: #b1951d;">]</span><span style="color: #67b11d;">]</span>-- ?<span style="color: #2d9574;">){</span>  <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">modify counter here */</span> <span style="color: #2d9574;">}</span>
+
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #2d9574;">(</span><span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">counter condition */</span><span style="color: #2d9574;">){</span> 
+
+                 <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">update d here if finding minimum*/</span>
+
+                <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">increase begin to make it invalid/valid again</span>
+
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span><span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #b1951d;">[</span>s<span style="color: #4f97d7;">[</span>begin++<span style="color: #4f97d7;">]</span><span style="color: #b1951d;">]</span>++ ?<span style="color: #67b11d;">){</span> <span style="color: #2aa1ae; background-color: #292e34;">/*</span><span style="color: #2aa1ae; background-color: #292e34;">modify counter here*/</span> <span style="color: #67b11d;">}</span>
+            <span style="color: #2d9574;">}</span>  
+
+            <span style="color: #2aa1ae; background-color: #292e34;">/* </span><span style="color: #2aa1ae; background-color: #292e34;">update d here if finding maximum*/</span>
+        <span style="color: #bc6ec5;">}</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> d;
+  <span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+The code of solving Longest Substring with At Most Two Distinct Characters is below:
+</p>
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">lengthOfLongestSubstringTwoDistinct</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">s</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+        <span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #bc6ec5;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #bc6ec5;">&gt;</span> <span style="color: #7590db;">map</span><span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">128</span>, <span style="color: #a45bad;">0</span><span style="color: #bc6ec5;">)</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">counter</span>=<span style="color: #a45bad;">0</span>, <span style="color: #7590db;">begin</span>=<span style="color: #a45bad;">0</span>, <span style="color: #7590db;">end</span>=<span style="color: #a45bad;">0</span>, <span style="color: #7590db;">d</span>=<span style="color: #a45bad;">0</span>; 
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #bc6ec5;">(</span>end&lt;s.size<span style="color: #2d9574;">()</span><span style="color: #bc6ec5;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #67b11d;">[</span>s<span style="color: #b1951d;">[</span>end++<span style="color: #b1951d;">]</span><span style="color: #67b11d;">]</span>++==<span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span> counter++;
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #2d9574;">(</span>counter&gt;<span style="color: #a45bad;">2</span><span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #67b11d;">[</span>s<span style="color: #b1951d;">[</span>begin++<span style="color: #b1951d;">]</span><span style="color: #67b11d;">]</span>--==<span style="color: #a45bad;">1</span><span style="color: #2d9574;">)</span> counter--;
+            d=max<span style="color: #2d9574;">(</span>d, end-begin<span style="color: #2d9574;">)</span>;
+        <span style="color: #bc6ec5;">}</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> d;
+    <span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+<p>
+The code of solving Longest Substring Without Repeating Characters is below:
+</p>
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">lengthOfLongestSubstring</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">s</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7;">{</span>
+        <span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #bc6ec5;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #bc6ec5;">&gt;</span> <span style="color: #7590db;">map</span><span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">128</span>,<span style="color: #a45bad;">0</span><span style="color: #bc6ec5;">)</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">counter</span>=<span style="color: #a45bad;">0</span>, <span style="color: #7590db;">begin</span>=<span style="color: #a45bad;">0</span>, <span style="color: #7590db;">end</span>=<span style="color: #a45bad;">0</span>, <span style="color: #7590db;">d</span>=<span style="color: #a45bad;">0</span>; 
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #bc6ec5;">(</span>end&lt;s.size<span style="color: #2d9574;">()</span><span style="color: #bc6ec5;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #67b11d;">[</span>s<span style="color: #b1951d;">[</span>end++<span style="color: #b1951d;">]</span><span style="color: #67b11d;">]</span>++&gt;<span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span> counter++; 
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #2d9574;">(</span>counter&gt;<span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">map</span><span style="color: #67b11d;">[</span>s<span style="color: #b1951d;">[</span>begin++<span style="color: #b1951d;">]</span><span style="color: #67b11d;">]</span>--&gt;<span style="color: #a45bad;">1</span><span style="color: #2d9574;">)</span> counter--;
+            d=max<span style="color: #2d9574;">(</span>d, end-begin<span style="color: #2d9574;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">while valid, update d</span>
+        <span style="color: #bc6ec5;">}</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> d;
+    <span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org934c923" class="outline-4">
+<h4 id="org934c923"><span class="section-number-4">1.10.2</span> aho corasick algorithm</h4>
+</div>
+<div id="outline-container-org53c31ae" class="outline-4">
+<h4 id="org53c31ae"><span class="section-number-4">1.10.3</span> kmp algorithm</h4>
+<div class="outline-text-4" id="text-1-10-3">
 <p>
 <a href="https://leetcode.com/problems/implement-strstr/">leetcode 28</a>
 </p>
@@ -462,14 +708,14 @@ Another way of implementation: KMP can also be viewed as a deterministic finite 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-C++"><span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">Solution</span> <span style="color: #4f97d7;">{</span>
-<span style="color: #4f97d7; font-weight: bold;">public</span>:
+<pre class="src src-C++"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #ce537a; font-weight: bold;">Solution</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
     <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">strStr</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">haystack</span>, <span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">needle</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
-        <span style="color: #4f97d7; font-weight: bold;">if</span><span style="color: #2d9574;">(</span>needle.length<span style="color: #67b11d;">()</span> == <span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span>
-            <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>;
-        <span style="color: #4f97d7; font-weight: bold;">if</span><span style="color: #2d9574;">(</span>haystack.length<span style="color: #67b11d;">()</span> == <span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span>needle.length<span style="color: #67b11d;">()</span> == <span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> <span style="color: #a45bad;">0</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span>haystack.length<span style="color: #67b11d;">()</span> == <span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span>
             <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">should not be empty string</span>
-            <span style="color: #4f97d7; font-weight: bold;">return</span> -<span style="color: #a45bad;">1</span>;
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> -<span style="color: #a45bad;">1</span>;
 
         <span style="color: #2aa1ae; background-color: #292e34;">/**</span>
 <span style="color: #2aa1ae; background-color: #292e34;">        * building phase</span>
@@ -478,12 +724,12 @@ Another way of implementation: KMP can also be viewed as a deterministic finite 
         fill<span style="color: #2d9574;">(</span>failure, failure + needle.size<span style="color: #67b11d;">()</span>, -<span style="color: #a45bad;">1</span><span style="color: #2d9574;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">fill the failure node with 0</span>
         <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">we set the initial value of failure[0] to be -1</span>
 
-        <span style="color: #4f97d7; font-weight: bold;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">r</span> = <span style="color: #a45bad;">1</span>, <span style="color: #7590db;">l</span> = -<span style="color: #a45bad;">1</span>; r &lt; needle.size<span style="color: #67b11d;">()</span>; r++<span style="color: #2d9574;">){</span>
-            <span style="color: #4f97d7; font-weight: bold;">while</span><span style="color: #67b11d;">(</span> l != -<span style="color: #a45bad;">1</span> &amp;&amp; needle<span style="color: #b1951d;">[</span>l+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">]</span> != needle<span style="color: #b1951d;">[</span>r<span style="color: #b1951d;">]</span><span style="color: #67b11d;">)</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">r</span> = <span style="color: #a45bad;">1</span>, <span style="color: #7590db;">l</span> = -<span style="color: #a45bad;">1</span>; r &lt; needle.size<span style="color: #67b11d;">()</span>; r++<span style="color: #2d9574;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #67b11d;">(</span> l != -<span style="color: #a45bad;">1</span> &amp;&amp; needle<span style="color: #b1951d;">[</span>l+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">]</span> != needle<span style="color: #b1951d;">[</span>r<span style="color: #b1951d;">]</span><span style="color: #67b11d;">)</span>
           l = failure<span style="color: #67b11d;">[</span>l<span style="color: #67b11d;">]</span>; 
             <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">repeatively fall back until we get -1, the initial value, which exists at failure[0]</span>
 
-            <span style="color: #4f97d7; font-weight: bold;">if</span><span style="color: #67b11d;">(</span> needle<span style="color: #b1951d;">[</span>l+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">]</span> == needle<span style="color: #b1951d;">[</span>r<span style="color: #b1951d;">]</span><span style="color: #67b11d;">)</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span> needle<span style="color: #b1951d;">[</span>l+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">]</span> == needle<span style="color: #b1951d;">[</span>r<span style="color: #b1951d;">]</span><span style="color: #67b11d;">)</span>
           failure<span style="color: #67b11d;">[</span>r<span style="color: #67b11d;">]</span> = ++l; <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">normally we will increase the value of l at every iteration</span>
         <span style="color: #2d9574;">}</span>
 
@@ -492,19 +738,19 @@ Another way of implementation: KMP can also be viewed as a deterministic finite 
 <span style="color: #2aa1ae; background-color: #292e34;">        **/</span>
 
         <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">tail</span> = -<span style="color: #a45bad;">1</span>;
-      <span style="color: #4f97d7; font-weight: bold;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span>=<span style="color: #a45bad;">0</span>; i &lt; haystack.length<span style="color: #67b11d;">()</span>; i++<span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
+      <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span>=<span style="color: #a45bad;">0</span>; i &lt; haystack.length<span style="color: #67b11d;">()</span>; i++<span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
 
-        <span style="color: #4f97d7; font-weight: bold;">while</span><span style="color: #67b11d;">(</span> tail != -<span style="color: #a45bad;">1</span> &amp;&amp; haystack<span style="color: #b1951d;">[</span>i<span style="color: #b1951d;">]</span> != needle<span style="color: #b1951d;">[</span>tail+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">]</span><span style="color: #67b11d;">)</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #67b11d;">(</span> tail != -<span style="color: #a45bad;">1</span> &amp;&amp; haystack<span style="color: #b1951d;">[</span>i<span style="color: #b1951d;">]</span> != needle<span style="color: #b1951d;">[</span>tail+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">]</span><span style="color: #67b11d;">)</span>
           tail = failure<span style="color: #67b11d;">[</span>tail<span style="color: #67b11d;">]</span>;
 
-        <span style="color: #4f97d7; font-weight: bold;">if</span><span style="color: #67b11d;">(</span> haystack<span style="color: #b1951d;">[</span>i<span style="color: #b1951d;">]</span> == needle<span style="color: #b1951d;">[</span>tail+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">]</span><span style="color: #67b11d;">)</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span> haystack<span style="color: #b1951d;">[</span>i<span style="color: #b1951d;">]</span> == needle<span style="color: #b1951d;">[</span>tail+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">]</span><span style="color: #67b11d;">)</span>
           tail++;
 
-        <span style="color: #4f97d7; font-weight: bold;">if</span><span style="color: #67b11d;">(</span> tail == needle.size<span style="color: #b1951d;">()</span> - <span style="color: #a45bad;">1</span><span style="color: #67b11d;">)</span>
-          <span style="color: #4f97d7; font-weight: bold;">return</span> i - tail;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span> tail == needle.size<span style="color: #b1951d;">()</span> - <span style="color: #a45bad;">1</span><span style="color: #67b11d;">)</span>
+          <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> i - tail;
       <span style="color: #2d9574;">}</span>
 
-        <span style="color: #4f97d7; font-weight: bold;">return</span> -<span style="color: #a45bad;">1</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> -<span style="color: #a45bad;">1</span>;
     <span style="color: #bc6ec5;">}</span>
 <span style="color: #4f97d7;">}</span>;
 </pre>
@@ -512,16 +758,16 @@ Another way of implementation: KMP can also be viewed as a deterministic finite 
 </div>
 </div>
 
-<div id="outline-container-orga107063" class="outline-4">
-<h4 id="orga107063"><span class="section-number-4">1.10.3</span> boyer-moore</h4>
+<div id="outline-container-org4b57cc6" class="outline-4">
+<h4 id="org4b57cc6"><span class="section-number-4">1.10.4</span> boyer-moore</h4>
 </div>
 </div>
-<div id="outline-container-orgb30b48e" class="outline-3">
-<h3 id="orgb30b48e"><span class="section-number-3">1.11</span> techniques</h3>
+<div id="outline-container-orgebae5b3" class="outline-3">
+<h3 id="orgebae5b3"><span class="section-number-3">1.11</span> techniques</h3>
 <div class="outline-text-3" id="text-1-11">
 </div>
 <ol class="org-ol">
-<li><a id="org0788208"></a>window sliding technique<br />
+<li><a id="orgea5c949"></a>window sliding technique<br />
 <div class="outline-text-5" id="text-1-11-0-1">
 <p>
 <a href="https://www.geeksforgeeks.org/window-sliding-technique/">geeksforgeeks</a> <a href="https://leetcode.com/problems/substring-with-concatenation-of-all-words/description/">leetcode 30</a>
@@ -537,16 +783,16 @@ this optimization technique will yield a better result.
 </ol>
 </div>
 
-<div id="outline-container-org585812a" class="outline-3">
-<h3 id="org585812a"><span class="section-number-3">1.12</span> math</h3>
+<div id="outline-container-org54fb0eb" class="outline-3">
+<h3 id="org54fb0eb"><span class="section-number-3">1.12</span> math</h3>
 <div class="outline-text-3" id="text-1-12">
 </div>
-<div id="outline-container-orgea18022" class="outline-4">
-<h4 id="orgea18022"><span class="section-number-4">1.12.1</span> permutation</h4>
+<div id="outline-container-org42ea128" class="outline-4">
+<h4 id="org42ea128"><span class="section-number-4">1.12.1</span> permutation</h4>
 <div class="outline-text-4" id="text-1-12-1">
 <p>
 <a href="https://leetcode.com/problems/next-permutation/description/">leetcode 31</a> <a href="https://en.wikipedia.org/wiki/Permutation#Generation_in_lexicographic_order">wiki: generation in lexicographic order</a> <a href="https://en.wikipedia.org/wiki/Lexicographical_order">wiki: lexicographical order</a>
-<a href="https://leetcode.com/problems/permutations/discuss/18247/My-elegant-recursive-C++-solution-with-inline-explanation">leetcode 46</a> <a href="https://leetcode.com/problems/permutations-ii/description/">leetcode 47</a>
+<a href="https://leetcode.com/problems/permutations/discuss/18247/My-elegant-recursive-C++-solution-with-inline-explanation">leetcode 46</a> <a href="https://leetcode.com/problems/permutations-ii/description/">leetcode 47</a> <a href="https://leetcode.com/problems/permutation-sequence/description/">leetcode 60</a> <a href="https://leetcode.com/problems/combinations/description/">leetcode 77</a>
 One interesting fact about permutation is that we can build a total order out of every permutation.
 Also, some quick sort algorithms uses random permutation to guarantee the average time of the algorithms.
 For leetcode question 31(next permutation), the right way to solve this question is that first make observation of the next
@@ -572,8 +818,8 @@ solution!
 </p>
 </div>
 </div>
-<div id="outline-container-org65da918" class="outline-4">
-<h4 id="org65da918"><span class="section-number-4">1.12.2</span> pigeonhole principle</h4>
+<div id="outline-container-orgf5ad975" class="outline-4">
+<h4 id="orgf5ad975"><span class="section-number-4">1.12.2</span> pigeonhole principle</h4>
 <div class="outline-text-4" id="text-1-12-2">
 <p>
 <a href="https://leetcode.com/problems/first-missing-positive/description/">leetcode 41</a>
@@ -589,8 +835,8 @@ positive number to negative.
 </p>
 </div>
 </div>
-<div id="outline-container-org07d1da1" class="outline-4">
-<h4 id="org07d1da1"><span class="section-number-4">1.12.3</span> add minus mulitiplication divide pow</h4>
+<div id="outline-container-org0d719b8" class="outline-4">
+<h4 id="org0d719b8"><span class="section-number-4">1.12.3</span> add minus mulitiplication divide pow</h4>
 <div class="outline-text-4" id="text-1-12-3">
 <p>
 <a href="https://leetcode.com/problems/multiply-strings/">leetcode 43</a>
@@ -599,25 +845,113 @@ This are normal functions implemented from scratch.
 </div>
 </div>
 
-<div id="outline-container-org5eaf1e8" class="outline-4">
-<h4 id="org5eaf1e8"><span class="section-number-4">1.12.4</span> matrix operation</h4>
+<div id="outline-container-org2fd8147" class="outline-4">
+<h4 id="org2fd8147"><span class="section-number-4">1.12.4</span> matrix operation</h4>
 <div class="outline-text-4" id="text-1-12-4">
 <p>
 <a href="https://leetcode.com/problems/rotate-image/description/">leetcode 48</a>
 </p>
 </div>
 </div>
+<div id="outline-container-org7bb8ba2" class="outline-4">
+<h4 id="org7bb8ba2"><span class="section-number-4">1.12.5</span> edit distance</h4>
+<div class="outline-text-4" id="text-1-12-5">
+<p>
+    <a href="https://leetcode.com/problems/edit-distance/discuss/25846/20ms-Detailed-Explained-C++-Solutions-(O(n)-Space)">leetcode 72</a>
+This is a classic DP problem. First consider the edge cases:
+if one of the string is empty, the number of operation will be purely the number of charactor of other words.
+</p>
+
+<p>
+Now, we first solve the subproblem. Having two words with length m and n, the number of changes required is 
+simply the min(change with m - 1, n - 1  + 1(replace), change with m - 1, n  + 1(delete), change with m, n -1 + 1(insert) )
+Using such a operation, we can build this table from buttom up.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #ce537a; font-weight: bold;">Solution</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+    <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">minDistance</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">word1</span>, <span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">word2</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">m</span> = word1.size<span style="color: #2d9574;">()</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">n</span> = word2.size<span style="color: #2d9574;">()</span>;
+
+        <span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #67b11d;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #67b11d;">&gt;</span><span style="color: #2d9574;">&gt;</span> <span style="color: #7590db;">dp</span><span style="color: #2d9574;">(</span>m + <span style="color: #a45bad;">1</span>, vector<span style="color: #67b11d;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #67b11d;">&gt;(</span>n + <span style="color: #a45bad;">1</span>, -<span style="color: #a45bad;">1</span><span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = <span style="color: #a45bad;">0</span>; i &lt;= m; i++<span style="color: #2d9574;">){</span>
+            dp<span style="color: #67b11d;">[</span>i<span style="color: #67b11d;">][</span><span style="color: #a45bad;">0</span><span style="color: #67b11d;">]</span> = i;
+        <span style="color: #2d9574;">}</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = <span style="color: #a45bad;">0</span>; i &lt;= n; i++<span style="color: #2d9574;">){</span>
+            dp<span style="color: #67b11d;">[</span><span style="color: #a45bad;">0</span><span style="color: #67b11d;">][</span>i<span style="color: #67b11d;">]</span> = i;
+        <span style="color: #2d9574;">}</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = <span style="color: #a45bad;">1</span>; i &lt;= m; i++<span style="color: #2d9574;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #67b11d;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">j</span> = <span style="color: #a45bad;">1</span>; j &lt;= n; j++<span style="color: #67b11d;">){</span>
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #b1951d;">(</span>word1<span style="color: #4f97d7;">[</span>i - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span> == word2<span style="color: #4f97d7;">[</span>j - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span><span style="color: #b1951d;">){</span>
+                    dp<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">][</span>j<span style="color: #4f97d7;">]</span> = dp<span style="color: #4f97d7;">[</span>i - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">][</span>j - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span>;
+                <span style="color: #b1951d;">}</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #b1951d;">{</span>
+                    dp<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">][</span>j<span style="color: #4f97d7;">]</span> = min<span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">dp</span><span style="color: #bc6ec5;">[</span>i - <span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">][</span>j - <span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">]</span> + <span style="color: #a45bad;">1</span>, min<span style="color: #bc6ec5;">(</span> <span style="color: #ce537a; font-weight: bold;">dp</span><span style="color: #2d9574;">[</span>i - <span style="color: #a45bad;">1</span><span style="color: #2d9574;">][</span>j<span style="color: #2d9574;">]</span> + <span style="color: #a45bad;">1</span>, <span style="color: #ce537a; font-weight: bold;">dp</span><span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">][</span>j - <span style="color: #a45bad;">1</span><span style="color: #2d9574;">]</span> + <span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>;
+                <span style="color: #b1951d;">}</span>
+            <span style="color: #67b11d;">}</span>
+        <span style="color: #2d9574;">}</span>
+
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> dp<span style="color: #2d9574;">[</span>m<span style="color: #2d9574;">][</span>n<span style="color: #2d9574;">]</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+<p>
+Notice that we actually don't need the entire dp, instead, we only need dp[i - 1][j - 1], dp[i - 1][j] and dp[i][j - 1].
+If we create a dp with length m + 1, store dp[_][j - 1]'s value, use one variable to store dp[i - 1][j].
+</p>
+
+<p>
+In practice, dp[i - 1][j] will be overwritten, we actually need a variable to store dp[i - 1][j - 1]. We call it previous.
+it will be sufficient.
+</p>
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #ce537a; font-weight: bold;">Solution</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+    <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">minDistance</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">word1</span>, <span style="color: #ce537a; font-weight: bold;">string</span> <span style="color: #7590db;">word2</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">m</span> = word1.size<span style="color: #2d9574;">()</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">n</span> = word2.size<span style="color: #2d9574;">()</span>;
+
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">dp</span><span style="color: #2d9574;">[</span>m + <span style="color: #a45bad;">1</span><span style="color: #2d9574;">]</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = <span style="color: #a45bad;">0</span>; i &lt;= m; i++<span style="color: #2d9574;">){</span>
+            dp<span style="color: #67b11d;">[</span>i<span style="color: #67b11d;">]</span> = i;
+        <span style="color: #2d9574;">}</span>
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">previous</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">tmp</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">j</span> = <span style="color: #a45bad;">1</span>; j &lt;= n; j++<span style="color: #2d9574;">){</span>
+            previous = dp<span style="color: #67b11d;">[</span><span style="color: #a45bad;">0</span><span style="color: #67b11d;">]</span>;
+            dp<span style="color: #67b11d;">[</span><span style="color: #a45bad;">0</span><span style="color: #67b11d;">]</span> = j;
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #67b11d;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = <span style="color: #a45bad;">1</span>; i &lt;= m; i++<span style="color: #67b11d;">){</span>
+                tmp = dp<span style="color: #b1951d;">[</span>i<span style="color: #b1951d;">]</span>;
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #b1951d;">(</span>word1<span style="color: #4f97d7;">[</span>i - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span> == word2<span style="color: #4f97d7;">[</span>j - <span style="color: #a45bad;">1</span><span style="color: #4f97d7;">]</span><span style="color: #b1951d;">){</span>
+                    dp<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> = previous;
+                <span style="color: #b1951d;">}</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #b1951d;">{</span>
+                    dp<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span> = min<span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">dp</span><span style="color: #bc6ec5;">[</span>i - <span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">]</span> + <span style="color: #a45bad;">1</span>, min<span style="color: #bc6ec5;">(</span>previous + <span style="color: #a45bad;">1</span>, <span style="color: #ce537a; font-weight: bold;">dp</span><span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span> + <span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">)</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">dp[i] store the value in the previous row</span>
+                    <span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">dp[i - 1] has been updated in the previous inner loop iteration.</span>
+                <span style="color: #b1951d;">}</span>
+                previous = tmp; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">recover the value dp[i - 1][j - 1]</span>
+            <span style="color: #67b11d;">}</span>
+        <span style="color: #2d9574;">}</span>
+
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> dp<span style="color: #2d9574;">[</span>m<span style="color: #2d9574;">]</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>;
+</pre>
 </div>
 </div>
-<div id="outline-container-org24244d5" class="outline-2">
-<h2 id="org24244d5"><span class="section-number-2">2</span> data strcture</h2>
+</div>
+</div>
+</div>
+<div id="outline-container-org6ae6ffe" class="outline-2">
+<h2 id="org6ae6ffe"><span class="section-number-2">2</span> data strcture</h2>
 <div class="outline-text-2" id="text-2">
 </div>
-<div id="outline-container-org7804633" class="outline-3">
-<h3 id="org7804633"><span class="section-number-3">2.1</span> stack</h3>
+<div id="outline-container-org20f88ea" class="outline-3">
+<h3 id="org20f88ea"><span class="section-number-3">2.1</span> stack</h3>
 <div class="outline-text-3" id="text-2-1">
 <p>
-<a href="https://leetcode.com/problems/longest-valid-parentheses/description/">leetcode 31</a>
+<a href="https://leetcode.com/problems/longest-valid-parentheses/description/">leetcode 31</a> <a href="https://leetcode.com/problems/largest-rectangle-in-histogram/description/">leetcode 84</a> <a href="https://leetcode.com/problems/largest-rectangle-in-histogram/description/">leetcode 85</a>
 There are many use cases for stack. The common use of stack is to store local variable in a programming language.
 </p>
 
@@ -640,69 +974,450 @@ If not, push the current index. The longest solution is between the index on the
 <p>
 This is particularly useful in program parsing.
 </p>
-</div>
-</div>
 
-<div id="outline-container-orgfb20b61" class="outline-3">
-<h3 id="orgfb20b61"><span class="section-number-3">2.2</span> queue</h3>
-</div>
-<div id="outline-container-orgdd13e0e" class="outline-3">
-<h3 id="orgdd13e0e"><span class="section-number-3">2.3</span> linked list</h3>
-</div>
-<div id="outline-container-orgd734a71" class="outline-3">
-<h3 id="orgd734a71"><span class="section-number-3">2.4</span> array</h3>
-</div>
-<div id="outline-container-org7a12527" class="outline-3">
-<h3 id="org7a12527"><span class="section-number-3">2.5</span> hash table</h3>
-</div>
-<div id="outline-container-org813e15e" class="outline-3">
-<h3 id="org813e15e"><span class="section-number-3">2.6</span> binary tree</h3>
-</div>
-<div id="outline-container-orga334e8f" class="outline-3">
-<h3 id="orga334e8f"><span class="section-number-3">2.7</span> heap</h3>
-</div>
-<div id="outline-container-org66af8c6" class="outline-3">
-<h3 id="org66af8c6"><span class="section-number-3">2.8</span> union find</h3>
-</div>
-<div id="outline-container-org6cf81cd" class="outline-3">
-<h3 id="org6cf81cd"><span class="section-number-3">2.9</span> trie</h3>
-</div>
-</div>
-<div id="outline-container-org280f349" class="outline-2">
-<h2 id="org280f349"><span class="section-number-2">3</span> design pattern</h2>
-</div>
-<div id="outline-container-org451294d" class="outline-2">
-<h2 id="org451294d"><span class="section-number-2">4</span> system design</h2>
-</div>
-<div id="outline-container-orgcf24519" class="outline-2">
-<h2 id="orgcf24519"><span class="section-number-2">5</span> operating system</h2>
-</div>
-<div id="outline-container-org647efb6" class="outline-2">
-<h2 id="org647efb6"><span class="section-number-2">6</span> language</h2>
-<div class="outline-text-2" id="text-6">
-</div>
-<div id="outline-container-org8215d8b" class="outline-3">
-<h3 id="org8215d8b"><span class="section-number-3">6.1</span> C++</h3>
-<div class="outline-text-3" id="text-6-1">
-</div>
-<div id="outline-container-orgb35b26b" class="outline-4">
-<h4 id="orgb35b26b"><span class="section-number-4">6.1.1</span> speedup code</h4>
-<div class="outline-text-4" id="text-6-1-1">
+<p>
+Leetcode 84 is another typical question that can be solved using stack.
+Idea:
+</p>
+<ol class="org-ol">
+<li>We can calculate the Largest Rectangle if the array is sorted(non-decreasing)</li>
+<li>We use a stack to maintain such a array and calculate the result on the fly</li>
+<li>Iterate over all numbers in sequence, if the current number is smaller than the stack top, we consider the two cases.</li>
+</ol>
+<p>
+Case 1: we do not include the current, the max will be among those on the stack which are greater than current.
+We calculate accordingly
+Case 2: we include current, then just replace all the number that is greater then current with the current value,
+again push the current to the stack
+</p>
+<ol class="org-ol">
+<li>if the current number is greater or equal to the stack top, we can always include this number to make a even better result.</li>
+</ol>
+
+<p>
+Code here:
+</p>
 <div class="org-src-container">
-<pre class="src src-C++" id="org0f3a6c7"><span style="color: #4f97d7; font-weight: bold;">static</span> <span style="color: #4f97d7; font-weight: bold;">const</span> <span style="color: #4f97d7; font-weight: bold;">auto</span> speedup = <span style="color: #4f97d7;">[](){</span>
+<pre class="src src-C++"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">static</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> speedup = <span style="color: #4f97d7;">[](){</span>
     <span style="color: #a45bad;">ios</span>::sync_with_stdio<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">false</span><span style="color: #bc6ec5;">)</span>;
     cin.tie<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">nullptr</span><span style="color: #bc6ec5;">)</span>;
-    <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">nullptr</span>;
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> <span style="color: #a45bad;">nullptr</span>;
+<span style="color: #4f97d7;">}()</span>;
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #ce537a; font-weight: bold;">Solution</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+
+    <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">largestRectangleArea</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span>&amp; <span style="color: #7590db;">heights</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">idea: build a array that is always increasing.</span>
+        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">such array is just a stack</span>
+        <span style="color: #ce537a; font-weight: bold;">stack</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span> <span style="color: #7590db;">stck</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">area</span> = <span style="color: #a45bad;">0</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">count</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = <span style="color: #a45bad;">0</span>; i &lt; heights.size<span style="color: #67b11d;">()</span>; i++<span style="color: #2d9574;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span>stck.empty<span style="color: #b1951d;">()</span> || stck.top<span style="color: #b1951d;">()</span> &lt;= heights<span style="color: #b1951d;">[</span>i<span style="color: #b1951d;">]</span><span style="color: #67b11d;">){</span>
+                stck.push<span style="color: #b1951d;">(</span><span style="color: #ce537a; font-weight: bold;">heights</span><span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span><span style="color: #b1951d;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">push back</span>
+            <span style="color: #67b11d;">}</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #67b11d;">{</span>
+                count = <span style="color: #a45bad;">0</span>;
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #b1951d;">(</span><span style="color: #a45bad;">!</span>stck.empty<span style="color: #4f97d7;">()</span> &amp;&amp; stck.top<span style="color: #4f97d7;">()</span> &gt; heights<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span><span style="color: #b1951d;">){</span>
+                    count++;
+                    area = max<span style="color: #4f97d7;">(</span>area, stck.top<span style="color: #bc6ec5;">()</span> * count<span style="color: #4f97d7;">)</span>;
+                    stck.pop<span style="color: #4f97d7;">()</span>;
+                <span style="color: #b1951d;">}</span>
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #b1951d;">(</span>count--<span style="color: #b1951d;">){</span>
+                    stck.push<span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">heights</span><span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">push back the result</span>
+                <span style="color: #b1951d;">}</span>
+                stck.push<span style="color: #b1951d;">(</span><span style="color: #ce537a; font-weight: bold;">heights</span><span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span><span style="color: #b1951d;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">push the current in</span>
+            <span style="color: #67b11d;">}</span>
+        <span style="color: #2d9574;">}</span> <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">end of loop, calculate the longest</span>
+
+        count = <span style="color: #a45bad;">0</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #2d9574;">(</span><span style="color: #a45bad;">!</span>stck.empty<span style="color: #67b11d;">()</span><span style="color: #2d9574;">){</span>
+            count++;
+            area = max<span style="color: #67b11d;">(</span>area, stck.top<span style="color: #b1951d;">()</span> * count<span style="color: #67b11d;">)</span>;
+            stck.pop<span style="color: #67b11d;">()</span>;
+        <span style="color: #2d9574;">}</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> area;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+
+<p>
+Leetcode 85 is a extension of leetcode 84. If we consider each row, and count the number of 1s on top of that row
+for each column, we can call it building. We basically are back to leetcode 84.
+Solution here:
+</p>
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #ce537a; font-weight: bold;">Solution</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">inline</span> <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">largestRectangleArea</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span>&amp; <span style="color: #7590db;">heights</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">idea: build a array that is always increasing.</span>
+        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">such array is just a stack</span>
+        <span style="color: #ce537a; font-weight: bold;">stack</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span> <span style="color: #7590db;">stck</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">area</span> = <span style="color: #a45bad;">0</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">count</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = <span style="color: #a45bad;">0</span>; i &lt; heights.size<span style="color: #67b11d;">()</span>; i++<span style="color: #2d9574;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span>stck.empty<span style="color: #b1951d;">()</span> || stck.top<span style="color: #b1951d;">()</span> &lt;= heights<span style="color: #b1951d;">[</span>i<span style="color: #b1951d;">]</span><span style="color: #67b11d;">){</span>
+                stck.push<span style="color: #b1951d;">(</span><span style="color: #ce537a; font-weight: bold;">heights</span><span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span><span style="color: #b1951d;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">push back</span>
+            <span style="color: #67b11d;">}</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #67b11d;">{</span>
+                count = <span style="color: #a45bad;">0</span>;
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #b1951d;">(</span><span style="color: #a45bad;">!</span>stck.empty<span style="color: #4f97d7;">()</span> &amp;&amp; stck.top<span style="color: #4f97d7;">()</span> &gt; heights<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span><span style="color: #b1951d;">){</span>
+                    count++;
+                    area = max<span style="color: #4f97d7;">(</span>area, stck.top<span style="color: #bc6ec5;">()</span> * count<span style="color: #4f97d7;">)</span>;
+                    stck.pop<span style="color: #4f97d7;">()</span>;
+                <span style="color: #b1951d;">}</span>
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #b1951d;">(</span>count--<span style="color: #b1951d;">){</span>
+                    stck.push<span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">heights</span><span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span><span style="color: #4f97d7;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">push back the result</span>
+                <span style="color: #b1951d;">}</span>
+                stck.push<span style="color: #b1951d;">(</span><span style="color: #ce537a; font-weight: bold;">heights</span><span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span><span style="color: #b1951d;">)</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">push the current in</span>
+            <span style="color: #67b11d;">}</span>
+        <span style="color: #2d9574;">}</span> <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">end of loop, calculate the longest</span>
+
+        count = <span style="color: #a45bad;">0</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #2d9574;">(</span><span style="color: #a45bad;">!</span>stck.empty<span style="color: #67b11d;">()</span><span style="color: #2d9574;">){</span>
+            count++;
+            area = max<span style="color: #67b11d;">(</span>area, stck.top<span style="color: #b1951d;">()</span> * count<span style="color: #67b11d;">)</span>;
+            stck.pop<span style="color: #67b11d;">()</span>;
+        <span style="color: #2d9574;">}</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> area;
+    <span style="color: #bc6ec5;">}</span>
+
+    <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">maximalRectangle</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #67b11d;">&lt;</span><span style="color: #ce537a; font-weight: bold;">char</span><span style="color: #67b11d;">&gt;</span><span style="color: #2d9574;">&gt;</span>&amp; <span style="color: #7590db;">matrix</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span>matrix.size<span style="color: #67b11d;">()</span> == <span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> <span style="color: #a45bad;">0</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span>matrix<span style="color: #67b11d;">[</span><span style="color: #a45bad;">0</span><span style="color: #67b11d;">]</span>.size<span style="color: #67b11d;">()</span> == <span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> <span style="color: #a45bad;">0</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">m</span> = matrix.size<span style="color: #2d9574;">()</span>, <span style="color: #7590db;">n</span> = matrix<span style="color: #2d9574;">[</span><span style="color: #a45bad;">0</span><span style="color: #2d9574;">]</span>.size<span style="color: #2d9574;">()</span>;
+        <span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #67b11d;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #67b11d;">&gt;</span><span style="color: #2d9574;">&gt;</span> <span style="color: #7590db;">dp</span><span style="color: #2d9574;">(</span>m, vector<span style="color: #67b11d;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #67b11d;">&gt;(</span>n, <span style="color: #a45bad;">0</span><span style="color: #67b11d;">)</span><span style="color: #2d9574;">)</span>;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">area</span> = <span style="color: #a45bad;">0</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = <span style="color: #a45bad;">0</span>; i &lt; m; i++<span style="color: #2d9574;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #67b11d;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">j</span> = <span style="color: #a45bad;">0</span>; j &lt; n; j++<span style="color: #67b11d;">){</span>
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #b1951d;">(</span>matrix<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">][</span>j<span style="color: #4f97d7;">]</span> == <span style="color: #2d9574;">'1'</span><span style="color: #b1951d;">){</span>
+                    dp<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">][</span>j<span style="color: #4f97d7;">]</span> = <span style="color: #a45bad;">1</span>;
+                    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #4f97d7;">(</span>i &gt; <span style="color: #a45bad;">0</span><span style="color: #4f97d7;">){</span>
+                        dp<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">][</span>j<span style="color: #bc6ec5;">]</span> += dp<span style="color: #bc6ec5;">[</span>i - <span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">][</span>j<span style="color: #bc6ec5;">]</span>; <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">build the dp</span>
+                    <span style="color: #4f97d7;">}</span>
+                <span style="color: #b1951d;">}</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #b1951d;">{</span>
+                    dp<span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">][</span>j<span style="color: #4f97d7;">]</span> = <span style="color: #a45bad;">0</span>;
+                <span style="color: #b1951d;">}</span>
+            <span style="color: #67b11d;">}</span>
+            <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">after building each row, calculate the result</span>
+            area = max<span style="color: #67b11d;">(</span>area, <span style="color: #ce537a; font-weight: bold;">largestRectangleArea</span><span style="color: #b1951d;">(</span><span style="color: #7590db;">dp</span><span style="color: #4f97d7;">[</span>i<span style="color: #4f97d7;">]</span><span style="color: #b1951d;">)</span><span style="color: #67b11d;">)</span>;
+        <span style="color: #2d9574;">}</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> area;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org96129fa" class="outline-3">
+<h3 id="org96129fa"><span class="section-number-3">2.2</span> queue</h3>
+</div>
+<div id="outline-container-org47295e4" class="outline-3">
+<h3 id="org47295e4"><span class="section-number-3">2.3</span> linked list</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+<a href="https://leetcode.com/problems/rotate-list/">leetcode 61</a> <a href="https://leetcode.com/problems/partition-list/description/">leetcode 86</a>
+Linked list are commonly use if you want quick head access, quick append, quick pop<sub>back</sub> operation.
+There are also two variant of linked list: ring buffer and doubly linked list.
+</p>
+</div>
+</div>
+<div id="outline-container-org2ff11dc" class="outline-3">
+<h3 id="org2ff11dc"><span class="section-number-3">2.4</span> array</h3>
+</div>
+<div id="outline-container-orge104913" class="outline-3">
+<h3 id="orge104913"><span class="section-number-3">2.5</span> hash table</h3>
+</div>
+<div id="outline-container-org533f44d" class="outline-3">
+<h3 id="org533f44d"><span class="section-number-3">2.6</span> binary tree</h3>
+<div class="outline-text-3" id="text-2-6">
+</div>
+<div id="outline-container-org7eca296" class="outline-4">
+<h4 id="org7eca296"><span class="section-number-4">2.6.1</span> binary search tree</h4>
+<div class="outline-text-4" id="text-2-6-1">
+<ol class="org-ol">
+<li>tranversal of the tree</li>
+</ol>
+<p>
+<a href="https://leetcode.com/problems/recover-binary-search-tree/description/">leetcode 99</a>
+Different ways of tranverse the tree produces different results.
+</p>
+<ol class="org-ol">
+<li>In-order tranversal is the most important one. If you print</li>
+</ol>
+<p>
+the value, it will produces a sorted array.
+Leetcode 99 uses this idea. We consider the binary search tree as a sorted array,
+then it becomes the problem to detect a swap of two elements in a sorted array.
+</p>
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #2aa1ae; background-color: #292e34;">/**</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * Definition for a binary tree node.</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * struct TreeNode {</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> *     int val;</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> *     TreeNode *left;</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> *     TreeNode *right;</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * };</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> */</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #ce537a; font-weight: bold;">Solution</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+    <span style="color: #ce537a; font-weight: bold;">TreeNode</span>* <span style="color: #7590db;">fst</span>;
+    <span style="color: #ce537a; font-weight: bold;">TreeNode</span>* <span style="color: #7590db;">snd</span>;
+    <span style="color: #ce537a; font-weight: bold;">TreeNode</span>* <span style="color: #7590db;">prev</span>;
+    <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">find</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">TreeNode</span>* <span style="color: #7590db;">root</span><span style="color: #bc6ec5;">){</span>
+        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">find the error</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span>root == <span style="color: #a45bad;">NULL</span><span style="color: #2d9574;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span>;
+        <span style="color: #2d9574;">}</span>
+
+        find<span style="color: #2d9574;">(</span>root-&gt;left<span style="color: #2d9574;">)</span>;
+
+        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">in-order tranversal</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span>fst == <span style="color: #a45bad;">NULL</span> &amp;&amp; prev-&gt;val &gt;= root-&gt;val<span style="color: #2d9574;">){</span>
+            <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">first disorder</span>
+            fst = prev;
+        <span style="color: #2d9574;">}</span> 
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span>fst != <span style="color: #a45bad;">NULL</span> &amp;&amp; prev-&gt;val &gt;= root-&gt;val<span style="color: #2d9574;">){</span>
+            snd = root;
+        <span style="color: #2d9574;">}</span>
+
+        prev = root;
+        <span style="color: #2aa1ae; background-color: #292e34;">// </span><span style="color: #2aa1ae; background-color: #292e34;">end of in-order tranvsersal</span>
+
+        find<span style="color: #2d9574;">(</span>root-&gt;right<span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+    <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">recoverTree</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">TreeNode</span>* <span style="color: #7590db;">root</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        fst = <span style="color: #a45bad;">NULL</span>;
+        snd  = <span style="color: #a45bad;">NULL</span>;
+        prev = <span style="color: #4f97d7; font-weight: bold; font-style: italic;">new</span> <span style="color: #ce537a; font-weight: bold;">TreeNode</span><span style="color: #2d9574;">(</span>INT_MIN<span style="color: #2d9574;">)</span>;
+        find<span style="color: #2d9574;">(</span>root<span style="color: #2d9574;">)</span>;
+        swap<span style="color: #2d9574;">(</span>fst-&gt;val, snd-&gt;val<span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+<ol class="org-ol">
+<li>recovery of binary trees</li>
+</ol>
+<p>
+Given a preorder tranversal and inorder tranversal, recover the binary tree
+<a href="https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/">leetcode 105</a>
+</p>
+
+<p>
+Idea: we do it recursively. Where we use the inorder tranversal to find the size of left child tree and right child tree,
+and using such information to divide the preorder printing array.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #2aa1ae; background-color: #292e34;">/**</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * Definition for a binary tree node.</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * struct TreeNode {</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> *     int val;</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> *     TreeNode *left;</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> *     TreeNode *right;</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> *     TreeNode(int x) : val(x), left(NULL), right(NULL) {}</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> * };</span>
+<span style="color: #2aa1ae; background-color: #292e34;"> */</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #ce537a; font-weight: bold;">Solution</span> <span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
+    <span style="color: #ce537a; font-weight: bold;">TreeNode</span>* <span style="color: #bc6ec5; font-weight: bold;">solve</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span>&amp; <span style="color: #7590db;">preorder</span>, <span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span>&amp; <span style="color: #7590db;">inorder</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">ps</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">pe</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">is</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">ie</span><span style="color: #bc6ec5;">){</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #2d9574;">(</span>ps &gt; pe || is &gt; ie<span style="color: #2d9574;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> <span style="color: #a45bad;">NULL</span>;
+        <span style="color: #2d9574;">}</span>
+        <span style="color: #ce537a; font-weight: bold;">TreeNode</span>* <span style="color: #7590db;">rst</span> = <span style="color: #4f97d7; font-weight: bold; font-style: italic;">new</span> <span style="color: #ce537a; font-weight: bold;">TreeNode</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">preorder</span><span style="color: #67b11d;">[</span>ps<span style="color: #67b11d;">]</span><span style="color: #2d9574;">)</span>;
+
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">pos</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = is; i &lt;= ie; i++<span style="color: #2d9574;">){</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span>inorder<span style="color: #b1951d;">[</span>i<span style="color: #b1951d;">]</span> == rst-&gt;val<span style="color: #67b11d;">){</span>
+                pos = i;
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">break</span>;
+            <span style="color: #67b11d;">}</span>
+        <span style="color: #2d9574;">}</span>
+
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">l_size</span> = pos - is;
+        <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">r_size</span> = ie - pos;
+
+        rst-&gt;left = solve<span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">preorder</span>, inorder, ps + <span style="color: #a45bad;">1</span>, ps + l_size, is, pos - <span style="color: #a45bad;">1</span><span style="color: #2d9574;">)</span>;
+        rst-&gt;right = solve<span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">preorder</span>, inorder, ps + l_size + <span style="color: #a45bad;">1</span>, pe, pos + <span style="color: #a45bad;">1</span>, ie<span style="color: #2d9574;">)</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> rst;
+    <span style="color: #bc6ec5;">}</span>
+    <span style="color: #ce537a; font-weight: bold;">TreeNode</span>* <span style="color: #bc6ec5; font-weight: bold;">buildTree</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span>&amp; <span style="color: #7590db;">preorder</span>, <span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span>&amp; <span style="color: #7590db;">inorder</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> solve<span style="color: #2d9574;">(</span><span style="color: #ce537a; font-weight: bold;">preorder</span>, inorder, <span style="color: #a45bad;">0</span>, preorder.size<span style="color: #67b11d;">()</span> - <span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">0</span>, inorder.size<span style="color: #67b11d;">()</span><span style="color: #2d9574;">)</span>;
+    <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>;
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgedd4241" class="outline-3">
+<h3 id="orgedd4241"><span class="section-number-3">2.7</span> heap</h3>
+</div>
+<div id="outline-container-orgc8a5a2c" class="outline-3">
+<h3 id="orgc8a5a2c"><span class="section-number-3">2.8</span> union find</h3>
+</div>
+<div id="outline-container-org0a8b056" class="outline-3">
+<h3 id="org0a8b056"><span class="section-number-3">2.9</span> trie</h3>
+</div>
+<div id="outline-container-org2080633" class="outline-3">
+<h3 id="org2080633"><span class="section-number-3">2.10</span> segment tree</h3>
+<div class="outline-text-3" id="text-2-10">
+<p>
+In the real world application, we aften faces situation which we want to do queries on a inteval.
+To support such operation, segment tree is introduced, and it has the following property:
+</p>
+<ol class="org-ol">
+<li>segment tree is a highly balenced binary tree</li>
+<li>every note of a segment tree represents a inteval, the father node's inteval represent the sum of two</li>
+</ol>
+<p>
+chid nodes. Brother nodes' intevals never collapse.
+</p>
+<ol class="org-ol">
+<li>most operation is \(O(n \log n) \).</li>
+</ol>
+<p>
+The data has to satisfy the property of monad to use this operation.
+Example code of point update + inteval query(sum as the binary operator)
+</p>
+<div class="org-src-container">
+<pre class="src src-C++"><span style="color: #bc6ec5;">#include</span><span style="color: #4f97d7;">&lt;</span><span style="color: #2d9574;">bits/stdc++.h</span><span style="color: #4f97d7;">&gt;</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">using</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">namespace</span> <span style="color: #a45bad;">std</span>;
+<span style="color: #bc6ec5;">#define</span> <span style="color: #7590db;">INF</span> <span style="color: #a45bad;">0x3f3f3f3f</span>
+<span style="color: #bc6ec5;">#define</span> <span style="color: #7590db;">LL</span> <span style="color: #ce537a; font-weight: bold;">long</span> <span style="color: #ce537a; font-weight: bold;">long</span>
+<span style="color: #bc6ec5;">#define</span> <span style="color: #bc6ec5; font-weight: bold;">UP</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">i</span>,<span style="color: #7590db;">a</span>,<span style="color: #7590db;">b</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span>=a;i&lt;=b;i++<span style="color: #4f97d7;">)</span>
+<span style="color: #bc6ec5;">#define</span> <span style="color: #bc6ec5; font-weight: bold;">DN</span><span style="color: #4f97d7;">(</span><span style="color: #7590db;">i</span>,<span style="color: #7590db;">a</span>,<span style="color: #7590db;">b</span><span style="color: #4f97d7;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span>=a;i&gt;=b;i--<span style="color: #4f97d7;">)</span>
+
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">struct</span> <span style="color: #ce537a; font-weight: bold;">node</span>
+<span style="color: #4f97d7;">{</span>
+  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">l</span>, <span style="color: #7590db;">m</span>, <span style="color: #7590db;">r</span>, <span style="color: #7590db;">sum</span>;
+<span style="color: #4f97d7;">}</span> <span style="color: #7590db;">nd</span><span style="color: #4f97d7;">[</span><span style="color: #a45bad;">4</span> * <span style="color: #a45bad;">50005</span><span style="color: #4f97d7;">]</span>;
+
+<span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">build</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">l</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">r</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">{</span>
+  nd<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span>.l = l;
+  nd<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span>.r = r;
+  nd<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span>.m = <span style="color: #bc6ec5;">(</span>l + r<span style="color: #bc6ec5;">)</span> / <span style="color: #a45bad;">2</span>;
+
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #bc6ec5;">(</span>l == r<span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">{</span>
+    scanf<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"%d"</span>, &amp;nd<span style="color: #67b11d;">[</span>i<span style="color: #67b11d;">]</span>.sum<span style="color: #2d9574;">)</span>;
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span>;
+  <span style="color: #bc6ec5;">}</span>
+
+  build<span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">i</span> * <span style="color: #a45bad;">2</span>, l, nd<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span>.m<span style="color: #bc6ec5;">)</span>;
+  build<span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">i</span> * <span style="color: #a45bad;">2</span> + <span style="color: #a45bad;">1</span>, nd<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span>.m + <span style="color: #a45bad;">1</span>, r<span style="color: #bc6ec5;">)</span>;
+
+  nd<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span>.sum = nd<span style="color: #bc6ec5;">[</span>i * <span style="color: #a45bad;">2</span><span style="color: #bc6ec5;">]</span>.sum + nd<span style="color: #bc6ec5;">[</span>i * <span style="color: #a45bad;">2</span> + <span style="color: #a45bad;">1</span><span style="color: #bc6ec5;">]</span>.sum;<span style="color: #2aa1ae; background-color: #292e34;">//</span><span style="color: #2aa1ae; background-color: #292e34;">At this point, two child trees have already been built up whose top nodes already have sum value</span>
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">update</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">n</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">x</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">{</span>
+  nd<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span>.sum += x;
+
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #bc6ec5;">(</span>nd<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span>.l == nd<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span>.r<span style="color: #bc6ec5;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span>;
+
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #bc6ec5;">(</span>n &lt;= nd<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span>.m<span style="color: #bc6ec5;">)</span>
+    update<span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">i</span> * <span style="color: #a45bad;">2</span>, n, x<span style="color: #bc6ec5;">)</span>;
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span>
+    update<span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">i</span> * <span style="color: #a45bad;">2</span> + <span style="color: #a45bad;">1</span>, n, x<span style="color: #bc6ec5;">)</span>;
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">query</span><span style="color: #4f97d7;">(</span><span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">a</span>, <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">b</span><span style="color: #4f97d7;">)</span>
+<span style="color: #4f97d7;">{</span>
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #bc6ec5;">(</span>nd<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span>.l == a &amp;&amp; nd<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span>.r == b<span style="color: #bc6ec5;">)</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> nd<span style="color: #bc6ec5;">[</span>i<span style="color: #bc6ec5;">]</span>.sum;
+
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #bc6ec5;">(</span>b &lt;= nd<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span>.m<span style="color: #bc6ec5;">)</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> query<span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">i</span> * <span style="color: #a45bad;">2</span>, a, b<span style="color: #bc6ec5;">)</span>;
+
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #bc6ec5;">(</span>nd<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span>.m &lt; a<span style="color: #bc6ec5;">)</span>
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> query<span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">i</span> * <span style="color: #a45bad;">2</span> + <span style="color: #a45bad;">1</span>, a, b<span style="color: #bc6ec5;">)</span>;
+
+  <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> query<span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">i</span> * <span style="color: #a45bad;">2</span>, a, nd<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span>.m<span style="color: #bc6ec5;">)</span> + query<span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">i</span> * <span style="color: #a45bad;">2</span> + <span style="color: #a45bad;">1</span>, nd<span style="color: #2d9574;">[</span>i<span style="color: #2d9574;">]</span>.m + <span style="color: #a45bad;">1</span>, b<span style="color: #bc6ec5;">)</span>;
+
+<span style="color: #4f97d7;">}</span>
+
+<span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #bc6ec5; font-weight: bold;">main</span><span style="color: #4f97d7;">()</span>
+<span style="color: #4f97d7;">{</span>
+  <span style="color: #ce537a; font-weight: bold;">char</span> <span style="color: #7590db;">s</span><span style="color: #bc6ec5;">[</span><span style="color: #a45bad;">20</span><span style="color: #bc6ec5;">]</span>;
+  <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">t</span>, <span style="color: #7590db;">n</span>, <span style="color: #7590db;">x</span>, <span style="color: #7590db;">a</span>, <span style="color: #7590db;">b</span>;
+
+  scanf<span style="color: #bc6ec5;">(</span><span style="color: #2d9574;">"%d"</span>, &amp;t<span style="color: #bc6ec5;">)</span>;
+
+  UP<span style="color: #bc6ec5;">(</span>i, <span style="color: #a45bad;">1</span>, t<span style="color: #bc6ec5;">)</span>
+  <span style="color: #bc6ec5;">{</span>
+    printf<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"Case %d:\n"</span>, i<span style="color: #2d9574;">)</span>;
+    scanf<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"%d"</span>, &amp;n<span style="color: #2d9574;">)</span>;
+
+    build<span style="color: #2d9574;">(</span><span style="color: #a45bad;">1</span>, <span style="color: #a45bad;">1</span>, n<span style="color: #2d9574;">)</span>;
+
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #2d9574;">(</span><span style="color: #a45bad;">1</span><span style="color: #2d9574;">)</span>
+    <span style="color: #2d9574;">{</span>
+      scanf<span style="color: #67b11d;">(</span><span style="color: #2d9574;">"%s"</span>, s<span style="color: #67b11d;">)</span>;
+
+      <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span>s<span style="color: #b1951d;">[</span><span style="color: #a45bad;">0</span><span style="color: #b1951d;">]</span> == <span style="color: #2d9574;">'A'</span><span style="color: #67b11d;">)</span>
+      <span style="color: #67b11d;">{</span>
+        scanf<span style="color: #b1951d;">(</span><span style="color: #2d9574;">"%d%d"</span>, &amp;n, &amp;x<span style="color: #b1951d;">)</span>;
+        update<span style="color: #b1951d;">(</span><span style="color: #a45bad;">1</span>, n, x<span style="color: #b1951d;">)</span>;
+      <span style="color: #67b11d;">}</span>
+      <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span>s<span style="color: #b1951d;">[</span><span style="color: #a45bad;">0</span><span style="color: #b1951d;">]</span> == <span style="color: #2d9574;">'S'</span><span style="color: #67b11d;">)</span>
+      <span style="color: #67b11d;">{</span>
+        scanf<span style="color: #b1951d;">(</span><span style="color: #2d9574;">"%d%d"</span>, &amp;n, &amp;x<span style="color: #b1951d;">)</span>;
+        update<span style="color: #b1951d;">(</span><span style="color: #a45bad;">1</span>, n, -x<span style="color: #b1951d;">)</span>;
+      <span style="color: #67b11d;">}</span>
+      <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span><span style="color: #67b11d;">(</span>s<span style="color: #b1951d;">[</span><span style="color: #a45bad;">0</span><span style="color: #b1951d;">]</span> == <span style="color: #2d9574;">'Q'</span><span style="color: #67b11d;">)</span>
+      <span style="color: #67b11d;">{</span>
+        scanf<span style="color: #b1951d;">(</span><span style="color: #2d9574;">"%d%d"</span>, &amp;a, &amp;b<span style="color: #b1951d;">)</span>;
+        printf<span style="color: #b1951d;">(</span><span style="color: #2d9574;">"%d\n"</span>, query<span style="color: #4f97d7;">(</span><span style="color: #a45bad;">1</span>, a, b<span style="color: #4f97d7;">)</span><span style="color: #b1951d;">)</span>;
+      <span style="color: #67b11d;">}</span>
+      <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">break</span>;
+    <span style="color: #2d9574;">}</span>
+  <span style="color: #bc6ec5;">}</span>
+<span style="color: #4f97d7;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org2bbb685" class="outline-2">
+<h2 id="org2bbb685"><span class="section-number-2">3</span> design pattern</h2>
+</div>
+<div id="outline-container-orgc749b12" class="outline-2">
+<h2 id="orgc749b12"><span class="section-number-2">4</span> system design</h2>
+</div>
+<div id="outline-container-orgdc5351d" class="outline-2">
+<h2 id="orgdc5351d"><span class="section-number-2">5</span> operating system</h2>
+</div>
+<div id="outline-container-org17e3646" class="outline-2">
+<h2 id="org17e3646"><span class="section-number-2">6</span> programming language</h2>
+<div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-org7b6a093" class="outline-3">
+<h3 id="org7b6a093"><span class="section-number-3">6.1</span> C++</h3>
+<div class="outline-text-3" id="text-6-1">
+</div>
+<div id="outline-container-org0c541fa" class="outline-4">
+<h4 id="org0c541fa"><span class="section-number-4">6.1.1</span> speedup code</h4>
+<div class="outline-text-4" id="text-6-1-1">
+<div class="org-src-container">
+<pre class="src src-C++" id="orgc88c0d5"><span style="color: #4f97d7; font-weight: bold; font-style: italic;">static</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">const</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">auto</span> speedup = <span style="color: #4f97d7;">[](){</span>
+    <span style="color: #a45bad;">ios</span>::sync_with_stdio<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">false</span><span style="color: #bc6ec5;">)</span>;
+    cin.tie<span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">nullptr</span><span style="color: #bc6ec5;">)</span>;
+    <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> <span style="color: #a45bad;">nullptr</span>;
 <span style="color: #4f97d7;">}()</span>;
 
-<span style="color: #4f97d7; font-weight: bold;">class</span> <span style="color: #ce537a; font-weight: bold;">VectorTools</span><span style="color: #4f97d7;">{</span>
-<span style="color: #4f97d7; font-weight: bold;">public</span>:
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">class</span> <span style="color: #ce537a; font-weight: bold;">VectorTools</span><span style="color: #4f97d7;">{</span>
+<span style="color: #4f97d7; font-weight: bold; font-style: italic;">public</span>:
     <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">sorted</span><span style="color: #bc6ec5;">(</span><span style="color: #a45bad;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span>::<span style="color: #ce537a; font-weight: bold;">iterator</span> <span style="color: #7590db;">first</span>, <span style="color: #a45bad;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span>::<span style="color: #ce537a; font-weight: bold;">iterator</span> <span style="color: #7590db;">last</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
-        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">(</span>first == last || first + <span style="color: #a45bad;">1</span> == last<span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold;">return</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #2d9574;">(</span>first == last || first + <span style="color: #a45bad;">1</span> == last<span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span>;
         <span style="color: #a45bad;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span>::<span style="color: #ce537a; font-weight: bold;">iterator</span> <span style="color: #7590db;">pivot</span> = first;
         <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">temp</span>;
-        <span style="color: #4f97d7; font-weight: bold;">for</span> <span style="color: #2d9574;">(</span><span style="color: #a45bad;">vector</span><span style="color: #67b11d;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #67b11d;">&gt;</span>::<span style="color: #ce537a; font-weight: bold;">iterator</span> <span style="color: #7590db;">it</span> = first+<span style="color: #a45bad;">1</span>; it != last; it ++<span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
-            <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #67b11d;">(</span>*it&lt;*pivot<span style="color: #67b11d;">)</span> <span style="color: #67b11d;">{</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span> <span style="color: #2d9574;">(</span><span style="color: #a45bad;">vector</span><span style="color: #67b11d;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #67b11d;">&gt;</span>::<span style="color: #ce537a; font-weight: bold;">iterator</span> <span style="color: #7590db;">it</span> = first+<span style="color: #a45bad;">1</span>; it != last; it ++<span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #67b11d;">(</span>*it&lt;*pivot<span style="color: #67b11d;">)</span> <span style="color: #67b11d;">{</span>
                 temp = *it;
                 *it = *<span style="color: #b1951d;">(</span>pivot+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">)</span>;
                 *<span style="color: #b1951d;">(</span>pivot+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">)</span> = *pivot;
@@ -718,26 +1433,26 @@ This is particularly useful in program parsing.
         <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">l</span> = <span style="color: #a45bad;">0</span>;
         <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">r</span> = size - <span style="color: #a45bad;">1</span>;
         <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">mid</span> = <span style="color: #2d9574;">(</span>l+r<span style="color: #2d9574;">)</span>/<span style="color: #a45bad;">2</span>;
-        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">(</span>size==<span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold;">return</span> -<span style="color: #a45bad;">1</span>;
-        <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">(</span>size==<span style="color: #a45bad;">1</span><span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #a45bad;">0</span>;
-        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">(</span><span style="color: #a45bad;">!</span>have_sorted<span style="color: #2d9574;">)</span> sorted<span style="color: #2d9574;">(</span>first, first+size<span style="color: #2d9574;">)</span>;
-        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">(</span>*<span style="color: #67b11d;">(</span>first+l<span style="color: #67b11d;">)</span>&gt;=tar<span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold;">return</span> l;
-        <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #2d9574;">(</span>*<span style="color: #67b11d;">(</span>first+r<span style="color: #67b11d;">)</span>&lt;=tar<span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold;">return</span> r;
-        <span style="color: #4f97d7; font-weight: bold;">while</span> <span style="color: #2d9574;">(</span>l &lt; r - <span style="color: #a45bad;">1</span><span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #2d9574;">(</span>size==<span style="color: #a45bad;">0</span><span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> -<span style="color: #a45bad;">1</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #2d9574;">(</span>size==<span style="color: #a45bad;">1</span><span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> <span style="color: #a45bad;">0</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #2d9574;">(</span><span style="color: #a45bad;">!</span>have_sorted<span style="color: #2d9574;">)</span> sorted<span style="color: #2d9574;">(</span>first, first+size<span style="color: #2d9574;">)</span>;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #2d9574;">(</span>*<span style="color: #67b11d;">(</span>first+l<span style="color: #67b11d;">)</span>&gt;=tar<span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> l;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #2d9574;">(</span>*<span style="color: #67b11d;">(</span>first+r<span style="color: #67b11d;">)</span>&lt;=tar<span style="color: #2d9574;">)</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> r;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span> <span style="color: #2d9574;">(</span>l &lt; r - <span style="color: #a45bad;">1</span><span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
             mid = <span style="color: #67b11d;">(</span>l+r<span style="color: #67b11d;">)</span>/<span style="color: #a45bad;">2</span>;
-            <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #67b11d;">(</span>*<span style="color: #b1951d;">(</span>first+mid<span style="color: #b1951d;">)</span> &lt; tar<span style="color: #67b11d;">)</span> l = mid;
-            <span style="color: #4f97d7; font-weight: bold;">else</span> <span style="color: #4f97d7; font-weight: bold;">if</span> <span style="color: #67b11d;">(</span>*<span style="color: #b1951d;">(</span>first+mid<span style="color: #b1951d;">)</span> == tar<span style="color: #67b11d;">)</span> <span style="color: #67b11d;">{</span>
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #67b11d;">(</span>*<span style="color: #b1951d;">(</span>first+mid<span style="color: #b1951d;">)</span> &lt; tar<span style="color: #67b11d;">)</span> l = mid;
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> <span style="color: #4f97d7; font-weight: bold; font-style: italic;">if</span> <span style="color: #67b11d;">(</span>*<span style="color: #b1951d;">(</span>first+mid<span style="color: #b1951d;">)</span> == tar<span style="color: #67b11d;">)</span> <span style="color: #67b11d;">{</span>
                 <span style="color: #ce537a; font-weight: bold;">int</span> <span style="color: #7590db;">i</span> = <span style="color: #a45bad;">0</span>;
-                <span style="color: #4f97d7; font-weight: bold;">while</span><span style="color: #b1951d;">(</span><span style="color: #4f97d7;">(</span>mid - i<span style="color: #4f97d7;">)</span>&gt;=<span style="color: #a45bad;">0</span> &amp;&amp; *<span style="color: #4f97d7;">(</span>first+mid-i<span style="color: #4f97d7;">)</span> ==  tar<span style="color: #b1951d;">)</span> i ++;
-                <span style="color: #4f97d7; font-weight: bold;">return</span> *<span style="color: #b1951d;">(</span>first+mid-i<span style="color: #b1951d;">)</span>==tar?<span style="color: #b1951d;">(</span>mid-i<span style="color: #b1951d;">)</span>:<span style="color: #b1951d;">(</span>mid-i+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">)</span>;
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">while</span><span style="color: #b1951d;">(</span><span style="color: #4f97d7;">(</span>mid - i<span style="color: #4f97d7;">)</span>&gt;=<span style="color: #a45bad;">0</span> &amp;&amp; *<span style="color: #4f97d7;">(</span>first+mid-i<span style="color: #4f97d7;">)</span> ==  tar<span style="color: #b1951d;">)</span> i ++;
+                <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> *<span style="color: #b1951d;">(</span>first+mid-i<span style="color: #b1951d;">)</span>==tar?<span style="color: #b1951d;">(</span>mid-i<span style="color: #b1951d;">)</span>:<span style="color: #b1951d;">(</span>mid-i+<span style="color: #a45bad;">1</span><span style="color: #b1951d;">)</span>;
             <span style="color: #67b11d;">}</span>
-            <span style="color: #4f97d7; font-weight: bold;">else</span> r = mid; 
+            <span style="color: #4f97d7; font-weight: bold; font-style: italic;">else</span> r = mid; 
         <span style="color: #2d9574;">}</span>
-        <span style="color: #4f97d7; font-weight: bold;">return</span> <span style="color: #2d9574;">(</span>tar-*<span style="color: #67b11d;">(</span>first+l<span style="color: #67b11d;">)</span> &gt;= *<span style="color: #67b11d;">(</span>first+r<span style="color: #67b11d;">)</span> - tar<span style="color: #2d9574;">)</span>?r:l;
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">return</span> <span style="color: #2d9574;">(</span>tar-*<span style="color: #67b11d;">(</span>first+l<span style="color: #67b11d;">)</span> &gt;= *<span style="color: #67b11d;">(</span>first+r<span style="color: #67b11d;">)</span> - tar<span style="color: #2d9574;">)</span>?r:l;
     <span style="color: #bc6ec5;">}</span>
 
     <span style="color: #ce537a; font-weight: bold;">void</span> <span style="color: #bc6ec5; font-weight: bold;">vector_display</span><span style="color: #bc6ec5;">(</span><span style="color: #ce537a; font-weight: bold;">vector</span><span style="color: #2d9574;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #2d9574;">&gt;</span>&amp; <span style="color: #7590db;">v</span><span style="color: #bc6ec5;">)</span> <span style="color: #bc6ec5;">{</span>
-        <span style="color: #4f97d7; font-weight: bold;">for</span> <span style="color: #2d9574;">(</span><span style="color: #a45bad;">vector</span><span style="color: #67b11d;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #67b11d;">&gt;</span>:: <span style="color: #ce537a; font-weight: bold;">iterator</span> <span style="color: #7590db;">it</span> = v.begin<span style="color: #67b11d;">()</span>; it != v.end<span style="color: #67b11d;">()</span>; it ++<span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
+        <span style="color: #4f97d7; font-weight: bold; font-style: italic;">for</span> <span style="color: #2d9574;">(</span><span style="color: #a45bad;">vector</span><span style="color: #67b11d;">&lt;</span><span style="color: #ce537a; font-weight: bold;">int</span><span style="color: #67b11d;">&gt;</span>:: <span style="color: #ce537a; font-weight: bold;">iterator</span> <span style="color: #7590db;">it</span> = v.begin<span style="color: #67b11d;">()</span>; it != v.end<span style="color: #67b11d;">()</span>; it ++<span style="color: #2d9574;">)</span> <span style="color: #2d9574;">{</span>
             printf<span style="color: #67b11d;">(</span><span style="color: #2d9574;">"%d "</span>,*it<span style="color: #67b11d;">)</span>;
         <span style="color: #2d9574;">}</span>printf<span style="color: #2d9574;">(</span><span style="color: #2d9574;">"\n"</span><span style="color: #2d9574;">)</span>;
     <span style="color: #bc6ec5;">}</span>
@@ -748,13 +1463,13 @@ This is particularly useful in program parsing.
 </div>
 </div>
 </div>
-<div id="outline-container-orgf6d185c" class="outline-2">
-<h2 id="orgf6d185c"><span class="section-number-2">7</span> database</h2>
+<div id="outline-container-orgc820852" class="outline-2">
+<h2 id="orgc820852"><span class="section-number-2">7</span> database</h2>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: Yiping Deng</p>
-<p class="date">Created: 2018-08-17 Fri 01:39</p>
+<p class="date">Created: 2018-09-08 Sat 22:03</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
