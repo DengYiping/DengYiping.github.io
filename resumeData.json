@@ -58,9 +58,15 @@
             {
                 "company":"Ubimax GmbH",
                 "title":"Software Engineer (Working Student)",
-                "years":"September 2018",
+                "years":"September 2018 - PRESENT",
                 "description":"Machine Learning training micro-service development, Kubernetes deployment, Azure cloud development. Full-stack development using AngularJS and Spring MVC, log management system development"
             },
+          {
+            "company": "Jacobs University Bremen",
+            "title": "Teaching Assistant - Object Oriented Programming",
+            "years": "October 2018 - PRESENT",
+            "description": "Grading programming homework in C++, grading written exams, design homework autograding system. Giving tutorials on C++ programming, C++11 features, common design pattern in Object Oriented Programming."
+          },
             {
                 "company":"Ubimax GmbH",
                 "title":"Machine Learning Engineer Intern",
