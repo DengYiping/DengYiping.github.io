@@ -49,7 +49,7 @@
             "school": "Jacobs University Bremen",
             "degree": "BCs Computer Science",
             "graduated": "June 2020",
-            "description": "Extensive course in Haskell, C and C++ programming, top student in Computer Science and Math. Guided research in Hilbert 10’s problem and automatic theorem proving, finished Machine Learning course"
+            "description": "Extensive course in Haskell, C and C++ programming, top student in Computer Science and Math. Guided research in Hilbert 10’s problem and automatic theorem proving, top student in Machine Learning course"
         }],
         "work": [{
                 "company": "Ubimax GmbH",
@@ -60,7 +60,7 @@
             {
                 "company": "Jacobs University Bremen",
                 "title": "Teaching Assistant - Object Oriented Programming",
-                "years": "October 2018 - PRESENT",
+                "years": "October 2018 - December 2018",
                 "description": "Grading programming homework in C++, grading written exams, design homework autograding system. Giving tutorials on C++ programming, C++11 features, common design pattern in Object Oriented Programming."
             },
             {
