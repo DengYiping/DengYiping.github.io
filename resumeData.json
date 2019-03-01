@@ -18,7 +18,7 @@
         "resumedownload": "/resume.pdf",
         "social": [{
                 "name": "facebook",
-                "url": "https://www.facebook.com/scottydeng",
+                "url": "https://www.facebook.com/profile.php?id=100003519814863",
                 "className": "fa fa-facebook"
             },
             {
@@ -56,6 +56,12 @@
                 "title": "Software Engineer (Working Student)",
                 "years": "September 2018 - PRESENT",
                 "description": "Machine Learning training micro-service development, Kubernetes deployment, Azure cloud development. Full-stack development using AngularJS and Spring MVC, log management system development"
+            },
+            {
+                "company": "Jacobs University Bremen",
+                "title": "Research Assistant - Marine and Robotics System",
+                "years": "Feburary 2019 - PRESENT",
+                "description": " Autonomous driving algorithms research based on Dockietown, preparing for AI driving olympics, ICRA 2019.Marine robotics research under Prof. Francesco Maurelli, underwater navigation algorithm design."
             },
             {
                 "company": "Jacobs University Bremen",
