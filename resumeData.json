@@ -109,32 +109,33 @@
             }
         ],
 
-        "skills": [{
-                "name": "Scala",
-                "level": "90%"
-            },
+        "skills": [
             {
                 "name": "Java",
-                "level": "82%"
+                "level": "95%"
             },
             {
                 "name": "C++",
-                "level": "83%"
+                "level": "85%"
+            },
+            {
+                "name": "Scala",
+                "level": "85%"
             },
             {
                 "name": "Python",
                 "level": "84%"
             },
             {
-                "name": "Javascript",
+                "name": "Javascript(ES6)",
+                "level": "75%"
+            },
+            {
+                "name": "React.js",
                 "level": "75%"
             },
             {
                 "name": "Docker",
-                "level": "60%"
-            },
-            {
-                "name": "ReactJs",
                 "level": "60%"
             },
             {
@@ -155,7 +156,7 @@
             },
             {
                 "name": "MariaDB",
-                "level": "70%"
+                "level": "80%"
             },
             {
                 "name": "Git",
@@ -180,6 +181,10 @@
             {
                 "name": "Numpy",
                 "level": "70%"
+            },
+            {
+                "name": "Kubernetes",
+                "level": "60%"
             }
         ]
     },
@@ -212,7 +217,7 @@
                 "user": " Mario Behling -- FOSSASIA Fundation Technical Program Manager"
             },
             {
-                "text": "Yiping Deng has been a great intern for our Software Security Lab, and he has in-depth knowledge in Cyber Security.",
+                "text": "Yiping Deng has been a great intern for our Software Security Lab, and he has in-depth knowledge in software development involving Cyber Security.",
                 "user": "Prof. Ping Luo -- Tsinghua University Software Security Lab"
             }
         ]
