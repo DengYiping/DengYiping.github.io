@@ -153,7 +153,12 @@ test('the feed and sitemap enumerate every article and use the configured domain
     assert.ok(outputs.get('sitemap.xml').includes(url));
   }
   assert.ok(!outputs.get('sitemap.xml').includes('/post/'));
-  assert.ok(!outputs.get('sitemap.xml').includes('loudcoder.com'));
+  assert.ok(!outputs.get('sitemap.xml').includes('dengyiping.github.io'));
+  for (const [path, html] of outputs) {
+    if (!path.endsWith('.html')) continue;
+    if (path !== '404.html') assert.ok(html.includes(`<link rel="canonical" href="${content.site.url}/`), path);
+    assert.ok(!html.includes('https://dengyiping.github.io'), path);
+  }
   assert.ok(outputs.get('robots.txt').includes(`${content.site.url}/sitemap.xml`));
 });
 

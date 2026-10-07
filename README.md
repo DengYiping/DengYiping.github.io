@@ -65,23 +65,23 @@ visibility, the public site address, or the custom-domain settings. Local builds
 and feature-branch commits alone do not publish; push reviewed changes to
 `master` to deploy them.
 
-## Later: loudcoder.com
+## Custom domain: loudcoder.com
 
-The visual identity is already Loudcoder. The canonical URL currently remains
-`https://dengyiping.github.io` until the domain is actually connected.
+The canonical origin in `site.config.json` is `https://loudcoder.com`. Builds use
+it for canonical URLs, sharing metadata, RSS, and the sitemap. `SITE_URL` can
+override the origin for a build.
 
-When you are ready:
+GitHub Pages recognizes `loudcoder.com` as the custom domain. Cloudflare manages
+DNS, with CNAME records for the apex (`@`) and `www` pointing to
+`dengyiping.github.io`. Cloudflare can proxy both records after GitHub has issued
+its HTTPS certificate. Use Full (strict) encryption for the origin connection.
+When diagnosing GitHub DNS or certificate provisioning, temporarily make these
+records DNS-only so GitHub's validation can see its origin records directly.
 
-1. Configure `loudcoder.com` as the repository’s custom domain in GitHub Pages
-   and point its DNS to GitHub Pages using GitHub’s then-current instructions.
-2. Retain the `CNAME` file GitHub creates (or add one containing the chosen
-   domain). No `CNAME` is included yet, so this rewrite does not switch domains.
-3. Change `url` in `site.config.json` to `https://loudcoder.com`, without a
-   trailing slash, and run `npm run build`. This updates canonical URLs, sharing
-   metadata, RSS, and the sitemap together. `SITE_URL` can also override the
-   origin for a build.
-4. Publish the updated files, enable HTTPS in Pages once available, and verify
-   the homepage, article URLs, and PDF on the connected domain.
+This repository uses GitHub Actions publishing; a `CNAME` file is not required
+by that publishing method. The existing file is retained from the domain setup.
+Keep the Pages publishing source set to GitHub Actions to avoid running a
+competing branch-based deployment.
 
 No DNS changes, deployment, or GitHub settings changes are made by local builds.
 
