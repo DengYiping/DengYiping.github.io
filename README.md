@@ -53,6 +53,18 @@ to the appropriate article. Direct `/blog/post/<original-id>/` and
 remove only this site’s old Create React App caches, so returning visitors can
 see the redesign.
 
+## Publishing
+
+`.github/workflows/pages.yml` publishes to the existing GitHub Pages site on
+pushes to `master`, or through a manual workflow run. It rebuilds the static site
+and runs the preservation tests with Node.js 24 before uploading and deploying.
+The official GitHub actions are pinned to reviewed release commit hashes.
+
+The Pages publishing source is GitHub Actions. This does not change repository
+visibility, the public site address, or the custom-domain settings. Local builds
+and feature-branch commits alone do not publish; push reviewed changes to
+`master` to deploy them.
+
 ## Later: loudcoder.com
 
 The visual identity is already Loudcoder. The canonical URL currently remains
