@@ -1,0 +1,65 @@
+/* Only the new article opts into these components; all text is present at build time. */
+.hilbert-article { --figure-bg: #eef2e7; --figure-ink: var(--ink); --figure-muted: #53604f; --figure-line: #cbd4c3; --figure-accent: var(--green); }
+.article-shell:has(.hilbert-article) .article-aside { max-height: calc(100svh - 160px); overflow-y: auto; padding-bottom: 20px; }
+.hilbert-article #register-demo { scroll-margin-top: 105px; }
+.hilbert-article .article-math { display: inline-block; max-width: 100%; vertical-align: middle; overflow-x: auto; overflow-y: hidden; padding: .25em 0; }
+.hilbert-article math { font-size: 1.06em; color: inherit; }
+.hilbert-article p:has(> .article-math:only-child) { text-align: center; padding-block: 12px; }
+.hilbert-article .explanation { margin: 38px 0; padding: 26px; background: var(--figure-bg); border: 1px solid var(--figure-line); border-radius: 6px; color: var(--figure-ink); }
+.hilbert-article .figure-kicker { display: block; color: var(--figure-accent); font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; }
+.hilbert-article .explanation h3 { margin: 10px 0 20px; font-size: 23px; line-height: 1.35; }
+.hilbert-article .explanation h4 { font-size: 16px; margin: 0 0 14px; line-height: 1.5; }
+.hilbert-article .explanation :is(h3, h4) { color: var(--figure-ink); }
+.hilbert-article .explanation p { font-size: 15px; margin: 16px 0; }
+.hilbert-article .table-scroll { max-width: 100%; overflow-x: auto; }
+.hilbert-article .explanation table { width: 100%; border-collapse: collapse; font-size: 14px; margin: 0; }
+.hilbert-article .explanation caption { text-align: left; color: var(--figure-muted); font-size: 13px; padding-bottom: 10px; }
+.hilbert-article .explanation th, .hilbert-article .explanation td { padding: 10px; border-bottom: 1px solid var(--figure-line); text-align: left; white-space: normal; }
+.hilbert-article tr[aria-current="step"] { outline: 2px solid var(--figure-accent); outline-offset: -2px; font-weight: 600; }
+.hilbert-article .machine-status { font-variant-numeric: tabular-nums; min-height: 3em; }
+.hilbert-article .machine-controls { display: flex; flex-wrap: wrap; gap: 10px; margin: 15px 0 22px; }
+.hilbert-article [hidden] { display: none; }
+.hilbert-article button { min-height: 44px; border: 1px solid var(--figure-accent); border-radius: 4px; padding: 10px 14px; background: transparent; color: var(--figure-accent); font: inherit; font-size: 14px; cursor: pointer; }
+.hilbert-article button:disabled { cursor: default; opacity: .65; }
+.hilbert-article button:focus-visible, .hilbert-article summary:focus-visible, .hilbert-article a:focus-visible { outline: 3px solid var(--figure-accent); outline-offset: 4px; }
+.hilbert-article summary { cursor: pointer; font-size: 14px; padding: 10px 0; }
+.hilbert-article figcaption { border-top: 1px solid var(--figure-line); padding-top: 15px; margin-top: 20px; color: var(--figure-muted); font-size: 13px; line-height: 1.65; }
+.hilbert-article .packing-digits { display: grid; grid-template-columns: repeat(4,minmax(0,1fr)); list-style: none; gap: 8px; padding: 0; margin: 0; }
+.hilbert-article .packing-digits li { margin: 0; text-align: center; border: 1px solid var(--figure-line); padding: 12px 4px; }
+.hilbert-article .packing-digits span { display: block; color: var(--figure-muted); font-size: 12px; }
+.hilbert-article .packing-digits strong { display: block; font-size: 28px; }
+.hilbert-article .proof-flow { list-style: none; padding: 0; counter-reset: proof; margin: 24px 0 0; }
+.hilbert-article .proof-flow li { counter-increment: proof; border-top: 1px solid var(--figure-line); padding: 15px 0; margin: 0; }
+.hilbert-article .proof-flow strong::before { content: counter(proof) ". "; color: var(--figure-accent); }
+.hilbert-article .proof-flow span { display: block; color: var(--figure-muted); font-size: 14px; }
+.hilbert-article .oracle-lanes { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 22px; }
+.hilbert-article .oracle-lanes section { border-top: 3px solid var(--figure-accent); padding-top: 15px; }
+.hilbert-article .oracle-lanes ol { padding-left: 20px; margin: 0; font-size: 14px; }
+.hilbert-article .oracle-lanes li { margin-bottom: 10px; }
+.hilbert-article .scheduler { border: 1px solid var(--figure-line); padding: 12px; }
+.hilbert-article .dependency-map { margin: 0; }
+.hilbert-article .dependency-map > div + div { border-top: 1px solid var(--figure-line); margin-top: 15px; padding-top: 15px; }
+.hilbert-article .dependency-map dt { font-size: 15px; font-weight: 600; }
+.hilbert-article .dependency-map dd { margin: 4px 0 0; font-size: 14px; line-height: 1.7; color: var(--figure-muted); }
+.hilbert-article h4[id^="r"] { font-size: 15px; margin: 25px 0 8px; color: var(--green); }
+.hilbert-article h4[id^="r"] + p { font-size: 14px; line-height: 1.7; overflow-wrap: anywhere; }
+@media (max-width: 650px) {
+  .hilbert-article .explanation { padding: 18px; margin-block: 28px; }
+  .hilbert-article .explanation h3 { font-size: 21px; }
+  .hilbert-article .oracle-lanes { grid-template-columns: minmax(0,1fr); }
+  .hilbert-article .explanation th, .hilbert-article .explanation td { padding: 8px 6px; }
+  .hilbert-article .article-math { font-size: .86em; }
+}
+/* Scoped dark figures retain readable contrast without restyling the existing site. */
+@media (prefers-color-scheme: dark) {
+  .hilbert-article { --figure-bg: #202c26; --figure-ink: #eff3e9; --figure-muted: #c4d0bd; --figure-line: #536456; --figure-accent: #d5f29b; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hilbert-article *, .hilbert-article *::before { transition: none !important; animation: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  .hilbert-article { --figure-bg: #fff; --figure-ink: #000; --figure-muted: #333; --figure-line: #aaa; --figure-accent: #000; }
+  .hilbert-article .machine-controls { display: none; }
+  .hilbert-article .explanation { break-inside: avoid; padding: 16px; }
+  .hilbert-article .article-math { overflow: visible; }
+}

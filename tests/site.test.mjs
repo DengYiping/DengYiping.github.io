@@ -4,7 +4,8 @@ import { readFile, stat } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { createHash } from 'node:crypto';
 import { runInNewContext } from 'node:vm';
-import { loadContent, renderMarkdown, build } from '../scripts/build.mjs';
+import { loadContent, renderMarkdown, articleWordCount, build } from '../scripts/build.mjs';
+import { initialState, stepMachine } from '../assets/hilbert-machine.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const content = await loadContent();
@@ -16,8 +17,11 @@ test('original blog archive is byte-for-byte unchanged', async () => {
 });
 
 test('all seven original posts are retained with original full titles, dates and Markdown', async () => {
-  assert.equal(content.posts.length, 7);
-  for (const post of content.posts) {
+  const originalArchive = JSON.parse(await readFile(resolve(root, 'json/blogs.json'), 'utf8'));
+  const originals = content.posts.filter(post => post.archived);
+  assert.equal(originals.length, 7);
+  assert.deepEqual(originals.map(post => post.id).sort(), Object.keys(originalArchive).sort());
+  for (const post of originals) {
     const original = JSON.parse(await readFile(resolve(root, `json/${post.id}.json`), 'utf8'));
     assert.equal(post.md, original.md);
     assert.equal(post.title, original.title);
@@ -27,6 +31,99 @@ test('all seven original posts are retained with original full titles, dates and
     assert.ok(html.includes(`<h1>${post.title}</h1>`));
     assert.ok(html.includes(`datetime="${post.date.split(' ')[0]}"`));
   }
+});
+
+test('new authored article is substantial, separately sourced and correctly dated', () => {
+  const authored = content.posts.filter(post => !post.archived);
+  assert.equal(authored.length, 1);
+  const post = authored[0];
+  assert.equal(post.date, '2026-10-07 12:00');
+  assert.ok(post.words >= 2800 && post.words <= 3500, `${post.words} words`);
+  assert.equal(post.words, articleWordCount(post.md));
+  assert.equal(post.minutes, Math.ceil(post.words / 200));
+  assert.ok(post.minutes >= 14 && post.minutes <= 18);
+  assert.equal(content.posts[0].id, post.id);
+  const html = outputs.get(`blog/${post.slug}/index.html`);
+  assert.ok(html.includes('New writing · Source and proof-status check: 7 October 2026.'));
+  assert.ok(!html.includes('Originally published in 2018'));
+  assert.ok(outputs.get('index.html').includes(`/blog/${post.slug}/`));
+  assert.ok(html.includes('model-generated'));
+  assert.ok(html.includes('does <strong>not</strong> establish many-one completeness'));
+});
+
+test('reading time excludes bibliography, code and component tokens', () => {
+  assert.equal(articleWordCount('One two.\n\n:::figure register\n\n{{math:height}}\n\n```js\nignored code\n```\n\n## References\n\nMany excluded words.'), 2);
+});
+
+test('math and semantic explanations are static, scoped and explicitly opt-in', () => {
+  const post = content.posts.find(post => !post.archived);
+  const html = outputs.get(`blog/${post.slug}/index.html`);
+  assert.equal((html.match(/<figure /g) || []).length, 4);
+  assert.ok((html.match(/<math /g) || []).length >= 10);
+  assert.ok(!html.includes('{{math:'));
+  assert.ok(!html.includes(':::figure'));
+  assert.ok(html.includes('aria-live="polite" aria-atomic="true"'));
+  assert.ok(html.includes('works without JavaScript'));
+  assert.ok(html.includes('not an implemented oracle'));
+  assert.ok(html.includes('/assets/hilbert.css'));
+  assert.ok(html.includes('/assets/hilbert.js'));
+  for (const archived of content.posts.filter(post => post.archived)) {
+    const old = outputs.get(`blog/${archived.slug}/index.html`);
+    assert.ok(!old.includes('/assets/hilbert.'));
+    assert.ok(old.includes('Originally published in 2018'));
+  }
+  const plain = renderMarkdown('{{math:height}}\n\n:::figure register').body;
+  assert.ok(!plain.includes('<math'));
+  assert.ok(!plain.includes('<figure'));
+});
+
+test('trusted components do not enable arbitrary HTML, unknown math or unsafe URLs', () => {
+  const rendered = renderMarkdown('<script>bad()</script>\n\n[bad](javascript:alert)\n\n{{math:height}}', { features: 'hilbert' }).body;
+  assert.ok(!rendered.includes('<script>'));
+  assert.ok(!rendered.includes('href="javascript:'));
+  assert.ok(rendered.includes('<math'));
+  assert.throws(() => renderMarkdown('{{math:unknown}}', { features: 'hilbert' }), /Unknown article math/);
+  assert.throws(() => renderMarkdown('{{math:constructor}}', { features: 'hilbert' }), /Unknown article math/);
+  assert.throws(() => renderMarkdown(':::figure unknown\n', { features: 'hilbert' }), /Unknown article figure/);
+  const code = renderMarkdown('```text\n{{math:height}}\n:::figure register\n```', { features: 'hilbert' }).body;
+  assert.ok(!code.includes('<math'));
+  assert.ok(!code.includes('<figure'));
+});
+
+test('article references, section links and component IDs are valid and unique', () => {
+  const post = content.posts.find(post => !post.archived);
+  const html = outputs.get(`blog/${post.slug}/index.html`);
+  const ids = [...html.matchAll(/\bid="([^"]+)"/g)].map(match => match[1]);
+  assert.equal(new Set(ids).size, ids.length);
+  for (const [, target] of html.matchAll(/href="#([^"]+)"/g)) assert.ok(ids.includes(target), target);
+  for (const [, target] of html.matchAll(/aria-labelledby="([^"]+)"/g)) {
+    for (const id of target.split(' ')) assert.ok(ids.includes(id), id);
+  }
+  for (let i = 1; i <= 15; i++) {
+    assert.ok(html.includes(`id="r${i}"`));
+    assert.ok(html.includes(`href="#r${i}"`));
+  }
+  const { headings } = renderMarkdown(post.md, post);
+  assert.ok(headings.every(heading => !/^R\d+$/.test(heading.text)), 'bibliography entries do not crowd the article TOC');
+  const githubLinks = [...html.matchAll(/href="(https:\/\/github.com\/openai\/math\/[^\"]+)"/g)].map(match => match[1]);
+  assert.equal(githubLinks.length, 5);
+  assert.ok(githubLinks.every(url => url.includes('adc7f1241b42e322a6451854ab7e4b4c146bf78a')));
+});
+
+test('addition demonstration preserves natural registers and halts at the stated result', () => {
+  let state = initialState();
+  const expected = [[1,2,2],[0,3,2],[1,3,1],[0,4,1],[1,4,0],[0,5,0],[2,5,0],[2,5,0]];
+  for (const [ip,r0,r1] of expected) {
+    const previous = { ...state };
+    state = stepMachine(state);
+    assert.deepEqual([state.ip,state.r0,state.r1], [ip,r0,r1]);
+    assert.ok(state.r0 >= 0 && state.r1 >= 0);
+    assert.equal(state.steps, previous.steps + 1);
+  }
+  assert.equal(state.halted, true);
+  assert.equal(stepMachine(state), state);
+  assert.deepEqual(initialState(), { ip: 0, r0: 2, r1: 3, steps: 0, halted: false });
+  assert.deepEqual(stepMachine({ ip: 0, r0: 7, r1: 0, steps: 0, halted: false }), { ip: 2, r0: 7, r1: 0, steps: 1, halted: false });
 });
 
 test('canonical and legacy direct article routes have the same complete content', () => {

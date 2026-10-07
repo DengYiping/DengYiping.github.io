@@ -3,29 +3,53 @@ import { resolve, dirname } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { Marked } from '../assets/vendor/marked.mjs';
 import { layout, home, archive, article, notes, escape } from './templates.mjs';
+import { hilbertExtensions } from './hilbert-components.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const readJSON = async path => JSON.parse(await readFile(resolve(root, path), 'utf8'));
 export async function loadContent() {
-  const [site, profile, original, metadata, projects] = await Promise.all(['site.config.json', 'content/profile.json', 'json/blogs.json', 'content/posts.json', 'content/projects.json'].map(readJSON));
+  const [site, profile, original, metadata, projects, authored] = await Promise.all(['site.config.json', 'content/profile.json', 'json/blogs.json', 'content/posts.json', 'content/projects.json', 'content/articles.json'].map(readJSON));
   if (process.env.SITE_URL) site.url = process.env.SITE_URL;
   const origin = new URL(site.url);
   if (origin.protocol !== 'https:' || origin.origin !== site.url) throw new Error('Site URL must be an HTTPS origin without a trailing slash or path.');
-  const posts = Object.entries(original).map(([id, post]) => {
+  const archivedPosts = Object.entries(original).map(([id, post]) => {
     const extra = metadata[id];
     if (!extra || !/^[a-z0-9-]+$/.test(extra.slug)) throw new Error(`Missing or invalid metadata for ${id}`);
-    return { ...post, ...extra, id, minutes: Math.max(1, Math.ceil(post.md.split(/\s+/).length / 200)) };
-  }).sort((a, b) => b.date.localeCompare(a.date));
+    return { ...post, ...extra, id, archived: true, minutes: Math.max(1, Math.ceil(post.md.split(/\s+/).length / 200)) };
+  });
+  const newPosts = await Promise.all(authored.map(async post => {
+    if (!/^[a-z0-9-]+\.md$/.test(post.source) || !/^[a-z0-9-]+$/.test(post.slug) || !/^[A-Za-z0-9_]+$/.test(post.id)) throw new Error('Invalid authored article path or identifier.');
+    if (post.features && post.features !== 'hilbert') throw new Error('Unknown article features.');
+    const md = await readFile(resolve(root, 'content/articles', post.source), 'utf8');
+    const words = articleWordCount(md);
+    return { ...post, md, archived: false, words, minutes: Math.max(1, Math.ceil(words / 200)) };
+  }));
+  const posts = [...archivedPosts, ...newPosts].sort((a, b) => b.date.localeCompare(a.date));
   if (new Set(posts.map(post => post.slug)).size !== posts.length) throw new Error('Post slugs must be unique.');
+  if (new Set(posts.map(post => post.id)).size !== posts.length) throw new Error('Post identifiers must be unique.');
   return { site, profile, posts, projects };
+}
+
+// Bibliography, code and component tokens are excluded from prose reading time.
+export function articleWordCount(markdown) {
+  const prose = markdown.split(/^## References\s*$/m)[0]
+    .replace(/```[\s\S]*?```/g, '')
+    .replace(/^:::figure [a-z-]+\s*$/gm, '')
+    .replace(/\{\{math:[a-z-]+\}\}/g, '')
+    .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+    .replace(/^#+\s*/gm, '')
+    .replace(/[*_`>#]/g, '');
+  return prose.trim().split(/\s+/).filter(Boolean).length;
 }
 
 // Only repository-owned Markdown is rendered at build time, never visitor input.
 // Raw HTML is escaped, and image/link protocols are constrained.
-export function renderMarkdown(markdown) {
+export function renderMarkdown(markdown, { features } = {}) {
   const headings = [];
   const usedIds = new Set();
   const parser = new Marked({ gfm: true, breaks: false });
+  // Opt-in, allowlisted repository components. Raw authored HTML stays escaped.
+  if (features === 'hilbert') parser.use({ extensions: hilbertExtensions });
   const safeURL = value => /^(https?:\/\/|mailto:|\/(?!\/)|#)/i.test(value) ? value : '#';
   parser.use({ renderer: {
     html({ text }) { return escape(text); },
@@ -62,10 +86,10 @@ export async function build() {
   outputs.set('index.html', page({ title: 'Yiping Deng — AI & Data Infrastructure · Loudcoder', content: home(content), schema: { '@context': 'https://schema.org', '@type': 'Person', name: profile.name, jobTitle: profile.role, url: site.url, sameAs: [profile.github, profile.linkedin], worksFor: { '@type': 'Organization', name: profile.company } } }));
   outputs.set('blog/index.html', page({ title: 'Writing — Loudcoder', description: 'Yiping Deng’s engineering notebook: algorithms, functional programming, React, and mathematical research.', path: '/blog/', active: 'writing', content: archive(content) }));
   for (const post of posts) {
-    const rendered = renderMarkdown(post.md);
+    const rendered = renderMarkdown(post.md, post);
     const related = posts.filter(other => other.id !== post.id).sort((a, b) => Number(b.category === post.category) - Number(a.category === post.category)).slice(0, 3);
     const path = `/blog/${post.slug}/`;
-    const html = page({ title: `${post.title} — Loudcoder`, description: post.summary, path, active: 'writing', type: 'article', content: article({ post, ...rendered, related }), schema: { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, datePublished: post.date.replace(' ', 'T'), author: { '@type': 'Person', name: profile.name, url: site.url }, mainEntityOfPage: site.url + path } });
+    const html = page({ title: `${post.title} — Loudcoder`, description: post.summary, path, active: 'writing', type: 'article', features: post.features, content: article({ post, ...rendered, related }), schema: { '@context': 'https://schema.org', '@type': 'BlogPosting', headline: post.title, datePublished: post.date.replace(' ', 'T'), author: { '@type': 'Person', name: profile.name, url: site.url }, mainEntityOfPage: site.url + path } });
     outputs.set(`blog/${post.slug}/index.html`, html);
     // Old direct routes remain usable on static hosting. Hash routes are handled
     // progressively in site.js using the archive's original post identifiers.
@@ -87,7 +111,7 @@ export async function build() {
     await mkdir(dirname(target), { recursive: true });
     await writeFile(target, html);
   }
-  console.log(`Built ${outputs.size} files. Preserved ${posts.length} original articles. Site: ${site.url}`);
+  console.log(`Built ${outputs.size} files. Preserved ${posts.filter(post => post.archived).length} original articles; ${posts.filter(post => !post.archived).length} new articles. Site: ${site.url}`);
   return outputs;
 }
 

@@ -4,7 +4,7 @@ import { loadContent } from './build.mjs';
 
 const origin = process.env.PREVIEW_URL || 'http://127.0.0.1:4173';
 const { posts } = await loadContent();
-const routes = ['/', '/blog/', '/algorithm.html', '/feed.xml', '/sitemap.xml', '/robots.txt', '/assets/site.css', '/assets/site.js', '/assets/social-card.png', '/assets/favicon.svg', '/service-worker.js', '/blog/service-worker.js', ...posts.flatMap(post => [`/blog/${post.slug}/`, `/blog/post/${post.id}/`, `/post/${post.id}/`])];
+const routes = ['/', '/blog/', '/algorithm.html', '/feed.xml', '/sitemap.xml', '/robots.txt', '/assets/site.css', '/assets/site.js', '/assets/hilbert.css', '/assets/hilbert.js', '/assets/hilbert-machine.mjs', '/assets/social-card.png', '/assets/favicon.svg', '/service-worker.js', '/blog/service-worker.js', ...posts.flatMap(post => [`/blog/${post.slug}/`, `/blog/post/${post.id}/`, `/post/${post.id}/`])];
 for (const route of routes) {
   const response = await fetch(origin + route);
   assert.equal(response.status, 200, route);

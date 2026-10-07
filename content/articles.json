@@ -1,0 +1,13 @@
+[
+  {
+    "id": "Hilbert_10_From_Machines_to_Rationals",
+    "slug": "hilberts-tenth-from-machines-to-rationals",
+    "title": "Hilbert’s tenth: from machines to equations, and a new rational-case claim",
+    "date": "2026-10-07 12:00",
+    "category": "Research",
+    "shortTitle": "Hilbert’s tenth, revisited",
+    "summary": "How integer equations encode computation, what formalization checks, and how to read OpenAI’s model-generated claim over the rationals.",
+    "source": "hilbert-tenth.md",
+    "features": "hilbert"
+  }
+]

@@ -19,7 +19,7 @@ export const dateLabel = date => new Date(`${date.split(' ')[0]}T12:00:00Z`).toL
 const tags = items => `<ul class="tags" aria-label="Technologies">${items.map(item => `<li>${escape(item)}</li>`).join('')}</ul>`;
 const brand = `<a class="brand" href="/" aria-label="Loudcoder home"><svg width="28" height="28" viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" aria-hidden="true"><path d="M3 11v6M8.5 6v16M14 2v24M19.5 8v12M25 11v6"/></svg><span>loudcoder<span class="brand-dot">.</span></span></a>`;
 
-export function layout({ site, profile, title, description = site.description, path = '/', active = '', content, type = 'website', schema, noindex = false }) {
+export function layout({ site, profile, title, description = site.description, path = '/', active = '', content, type = 'website', schema, noindex = false, features }) {
   const canonical = site.url + path;
   return `<!doctype html>
 <html lang="en">
@@ -44,7 +44,7 @@ export function layout({ site, profile, title, description = site.description, p
   <link rel="alternate" type="application/rss+xml" title="Loudcoder writing" href="/feed.xml">
   <link rel="stylesheet" href="/assets/site.css">
   <script src="/assets/site.js" defer></script>
-${schema ? `  <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>` : ''}
+${features === 'hilbert' ? '  <link rel="stylesheet" href="/assets/hilbert.css">\n  <script type="module" src="/assets/hilbert.js"></script>\n' : ''}${schema ? `  <script type="application/ld+json">${JSON.stringify(schema).replace(/</g, '\\u003c')}</script>` : ''}
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -150,7 +150,7 @@ export function home({ site, profile: p, posts, projects }) {
     <a class="contribution-card" href="${p.openSource.url}" target="_blank" rel="noopener noreferrer"><div class="contribution-top"><span class="eyebrow">Open source</span>${icon('arrow')}</div><h3>${p.openSource.title}</h3><p>${escape(p.openSource.description)}</p><span class="card-link-label">Explore the contributions</span></a>
     <a class="contribution-card" href="${p.publication.url}" target="_blank" rel="noopener noreferrer"><div class="contribution-top"><span class="eyebrow">Research / ${p.publication.date}</span>${icon('arrow')}</div><h3>${escape(p.publication.title)}</h3><p>${escape(p.publication.description)}</p><span class="card-link-label">Read the publication</span></a>
   </div></section>
-  <section class="section writing-section" aria-labelledby="writing-title"><div class="container"><div class="section-heading"><div><p class="eyebrow section-number">05 / The notebook</p><h2 id="writing-title">Thinking out loud.</h2></div><a class="text-link" href="/blog/">All writing ${icon('right')}</a></div><p class="section-intro">Notes on code, computer science, and the ideas underneath. From the archive.</p><div class="post-grid">${posts.slice(0, 3).map(postCard).join('')}</div></div></section>
+  <section class="section writing-section" aria-labelledby="writing-title"><div class="container"><div class="section-heading"><div><p class="eyebrow section-number">05 / The notebook</p><h2 id="writing-title">Thinking out loud.</h2></div><a class="text-link" href="/blog/">All writing ${icon('right')}</a></div><p class="section-intro">Notes on code, computer science, and the ideas underneath. New thinking, alongside the archive.</p><div class="post-grid">${posts.slice(0, 3).map(postCard).join('')}</div></div></section>
   <section class="contact-section container" id="contact" aria-labelledby="contact-title"><div><p class="eyebrow">Good things start with a conversation.</p><h2 id="contact-title">Let’s connect<span>.</span></h2><p>Talk systems, trade ideas, or just say hello.</p></div><a class="button button-dark" href="${escape(p.linkedin)}" target="_blank" rel="noopener noreferrer">Say hello ${icon('arrow')}</a><div class="contact-email"><a href="mailto:${p.email}">${p.email}</a><span>Dublin, Ireland</span></div></section>`;
 }
 
@@ -162,8 +162,8 @@ export function archive({ posts }) {
 }
 
 export function article({ post, body, related, headings }) {
-  return `<div class="reading-progress" aria-hidden="true"></div><div class="container article-shell"><div class="article-breadcrumb"><a class="text-link" href="/blog/">← All writing</a><span class="eyebrow">${escape(post.category)}</span></div><header class="article-header"><h1>${escape(post.title)}</h1><div class="article-meta"><span class="author-monogram" aria-hidden="true">YD</span><span>Yiping Deng</span><span class="meta-dot">·</span><time datetime="${post.date.split(' ')[0]}">${dateLabel(post.date)}</time><span class="meta-dot">·</span><span>${post.minutes} min read</span></div><p class="archive-note">From the archive. Originally published in 2018; the article content is preserved.</p></header>
-  <div class="article-layout"><article class="prose" aria-label="Article content">${body}</article><aside class="article-aside${headings.length ? ' has-contents' : ''}">${headings.length ? `<span class="eyebrow">On this page</span><nav aria-label="Article sections"><ul>${headings.map(heading => `<li><a href="#${escape(heading.id)}">${escape(heading.text)}</a></li>`).join('')}</ul></nav>` : ''}<div class="aside-author"><span class="eyebrow">About the author</span><p>Yiping Deng</p><span>Tech lead building AI & data infrastructure at HubSpot.</span><a class="text-link" href="/#about">More about me ${icon('arrow')}</a></div></aside></div>
+  return `<div class="reading-progress" aria-hidden="true"></div><div class="container article-shell"><div class="article-breadcrumb"><a class="text-link" href="/blog/">← All writing</a><span class="eyebrow">${escape(post.category)}</span></div><header class="article-header"><h1>${escape(post.title)}</h1><div class="article-meta"><span class="author-monogram" aria-hidden="true">YD</span><span>Yiping Deng</span><span class="meta-dot">·</span><time datetime="${post.date.split(' ')[0]}">${dateLabel(post.date)}</time><span class="meta-dot">·</span><span>${post.minutes} min read</span></div>${post.archived ? '<p class="archive-note">From the archive. Originally published in 2018; the article content is preserved.</p>' : '<p class="archive-note">New writing · Source and proof-status check: 7 October 2026.</p>'}</header>
+  <div class="article-layout"><article class="prose${post.features === 'hilbert' ? ' hilbert-article' : ''}" aria-label="Article content">${body}</article><aside class="article-aside${headings.length ? ' has-contents' : ''}">${headings.length ? `<span class="eyebrow">On this page</span><nav aria-label="Article sections"><ul>${headings.map(heading => `<li><a href="#${escape(heading.id)}">${escape(heading.text)}</a></li>`).join('')}</ul></nav>` : ''}<div class="aside-author"><span class="eyebrow">About the author</span><p>Yiping Deng</p><span>Tech lead building AI & data infrastructure at HubSpot.</span><a class="text-link" href="/#about">More about me ${icon('arrow')}</a></div></aside></div>
   <div class="article-end"><span class="end-mark" aria-hidden="true">✳</span><p>Thanks for reading.</p><a class="text-link" href="/blog/">Back to the notebook ${icon('right')}</a></div></div>
   <section class="section related-section"><div class="container"><div class="section-heading"><div><p class="eyebrow">Keep exploring</p><h2>Another thread to follow.</h2></div></div><div class="post-grid">${related.map(postCard).join('')}</div></div></section>`;
 }
