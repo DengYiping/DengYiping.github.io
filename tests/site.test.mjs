@@ -86,6 +86,13 @@ test('the portfolio contains every CV role, skill and the supplied publication',
   for (const outdated of ['undergraduate student', 'Ubimax GmbH', 'y.deng@jacobs-university.de', '95%']) assert.ok(!html.includes(outdated), outdated);
 });
 
+test('Say hello opens LinkedIn while the separate email link remains available', () => {
+  const html = outputs.get('index.html');
+  assert.ok(html.includes(`href="${content.profile.linkedin}" target="_blank" rel="noopener noreferrer">Say hello`));
+  assert.ok(!html.includes(`href="mailto:${content.profile.email}">Say hello`));
+  assert.ok(html.includes(`<div class="contact-email"><a href="mailto:${content.profile.email}">`));
+});
+
 test('six curated public projects render as accessible static repository links', () => {
   const html = outputs.get('index.html');
   assert.equal(content.projects.length, 6);
