@@ -73,11 +73,11 @@ ${schema ? `  <script type="application/ld+json">${JSON.stringify(schema).replac
 `;
 }
 
-export function postCard(post, index = 0) {
+export function postCard(post) {
   return `<article class="post-card" data-post-card data-category="${escape(post.category)}" data-search="${escape((post.title + ' ' + post.shortTitle + ' ' + post.summary + ' ' + post.category).toLowerCase())}">
     <a class="post-card-link" href="/blog/${post.slug}/" data-post-id="${escape(post.id)}">
-      <div class="post-card-top"><span class="eyebrow">${escape(post.category)}</span><span class="post-index">${String(index + 1).padStart(2, '0')}</span></div>
-      <h3>${escape(post.shortTitle)}</h3><p>${escape(post.summary)}</p>
+      <div class="post-card-top"><span class="eyebrow">${escape(post.category)}</span></div>
+      <h3>${escape(post.title)}</h3><p>${escape(post.summary)}</p>
       <div class="post-card-bottom"><span><time datetime="${post.date.split(' ')[0]}">${dateLabel(post.date)}</time><span class="meta-dot">·</span>${post.minutes} min read</span>${icon('arrow')}</div>
     </a>
   </article>`;
@@ -111,7 +111,8 @@ export function home({ site, profile: p, posts }) {
   const education = p.education;
   return `<section class="hero container" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <p class="eyebrow hero-eyebrow"><span class="status-dot"></span>Tech lead · AI & data infrastructure</p>
+      <p class="hero-name">${escape(p.name)}</p>
+      <p class="eyebrow hero-eyebrow"><span class="identity-mark" aria-hidden="true"></span>${escape(p.role)} · ${escape(p.company)}</p>
       <h1 id="hero-title">Making AI work.<br><span>At scale.</span></h1>
       <p class="hero-intro">${escape(p.intro)}</p>
       <div class="hero-actions"><a class="button button-dark" href="#work">Explore my work ${icon('down')}</a><a class="text-link" href="${site.cv}" download="Yiping_Deng_Resume.pdf">Download CV ${icon('download')}</a></div>
@@ -119,7 +120,7 @@ export function home({ site, profile: p, posts }) {
     </div>
     ${systemMap()}
   </section>
-  <section class="metrics container" aria-label="Selected career impact"><div class="metrics-label eyebrow">A little perspective<br>on the scale.</div><div class="metrics-grid">${p.metrics.map(metric => `<div class="metric"><strong>${escape(metric.value)}</strong><span>${escape(metric.label)}</span><small>${escape(metric.detail)}</small></div>`).join('')}</div></section>
+  <section class="metrics container" aria-label="Selected career impact"><div class="metrics-label eyebrow">Selected impact</div><div class="metrics-grid">${p.metrics.map(metric => `<div class="metric"><strong>${escape(metric.value)}</strong><span>${escape(metric.label)}</span><small>${escape(metric.detail)}</small></div>`).join('')}</div></section>
   <section class="section container" id="work" aria-labelledby="work-title">
     <div class="section-heading"><div><p class="eyebrow section-number">01 / What I build</p><h2 id="work-title">The foundations<br>behind the possibilities.</h2></div><p>Reliable platforms. Thoughtful abstractions.<br>Room for the next big idea.</p></div>
     <div class="focus-grid">${p.focus.map(item => `<article class="focus-card"><div class="focus-card-top"><span>${item.number}</span>${icon(item.icon)}</div><h3>${escape(item.title)}</h3><p>${escape(item.description)}</p>${tags(item.tags)}</article>`).join('')}</div>
@@ -142,15 +143,14 @@ export function home({ site, profile: p, posts }) {
 
 export function archive({ posts }) {
   const categories = [...new Set(posts.map(post => post.category))];
-  return `<section class="page-hero container"><p class="eyebrow section-number">The notebook</p><h1>Thinking<br><span>out loud.</span></h1><p>Notes on code, computer science, and the ideas underneath.<br>A small archive of things I’ve learned along the way.</p><div class="page-hero-foot"><span>${posts.length} articles · Since 2018</span><a class="text-link" href="/feed.xml">RSS feed ${icon('arrow')}</a></div></section>
+  return `<section class="page-hero container"><p class="eyebrow section-number">The notebook</p><h1>Thinking<br><span>out loud.</span></h1><p>Notes on code, computer science, and the ideas underneath. <br>A small archive of things I’ve learned along the way.</p><div class="page-hero-foot"><span>${posts.length} articles · Since 2018</span><a class="text-link" href="/feed.xml">RSS feed ${icon('arrow')}</a></div></section>
   <section class="archive-section container" aria-labelledby="archive-title"><div class="archive-tools"><h2 class="sr-only" id="archive-title">All articles</h2><div class="filters" role="group" aria-label="Filter articles by topic"><button class="filter-button" type="button" data-filter="all" aria-pressed="true">All writing</button>${categories.map(category => `<button class="filter-button" type="button" data-filter="${escape(category)}" aria-pressed="false">${escape(category)}</button>`).join('')}</div><label class="search-field">${icon('search')}<span class="sr-only">Search articles</span><input id="post-search" type="search" placeholder="Find an idea…" autocomplete="off"></label></div>
-  <p class="archive-count" id="archive-count" role="status">${posts.length} articles</p><div class="post-grid archive-grid">${posts.map(postCard).join('')}</div><div class="empty-state" id="empty-state" hidden><h3>No articles found.</h3><p>Try another search or explore all the writing.</p><button class="button button-dark" type="button" id="reset-filters">Show all articles ${icon('right')}</button></div>
-  <a class="notes-link" href="/algorithm.html"><span class="notes-icon">${icon('book')}</span><div><span class="eyebrow">From the study desk</span><h3>Algorithms & data structures</h3><p>A longer reference notebook of algorithms, examples, and study notes.</p></div>${icon('arrow')}</a></section>`;
+  <p class="archive-count" id="archive-count" role="status">${posts.length} articles</p><div class="post-grid archive-grid">${posts.map(postCard).join('')}<a class="notes-link" href="/algorithm.html" data-reference-card><span class="notes-icon">${icon('book')}</span><div><span class="eyebrow">Reference notebook</span><h3>Algorithms & data structures</h3><p>A longer reference notebook of algorithms, examples, and study notes.</p></div>${icon('arrow')}</a></div><div class="empty-state" id="empty-state" hidden><h3>No articles found.</h3><p>Try another search or explore all the writing.</p><button class="button button-dark" type="button" id="reset-filters">Show all articles ${icon('right')}</button></div></section>`;
 }
 
 export function article({ post, body, related, headings }) {
   return `<div class="reading-progress" aria-hidden="true"></div><div class="container article-shell"><div class="article-breadcrumb"><a class="text-link" href="/blog/">← All writing</a><span class="eyebrow">${escape(post.category)}</span></div><header class="article-header"><h1>${escape(post.title)}</h1><div class="article-meta"><span class="author-monogram" aria-hidden="true">YD</span><span>Yiping Deng</span><span class="meta-dot">·</span><time datetime="${post.date.split(' ')[0]}">${dateLabel(post.date)}</time><span class="meta-dot">·</span><span>${post.minutes} min read</span></div><p class="archive-note">From the archive. Originally published in 2018; the article content is preserved.</p></header>
-  <div class="article-layout"><article class="prose" aria-label="Article content">${body}</article><aside class="article-aside"><span class="eyebrow">On this page</span>${headings.length ? `<nav aria-label="Article sections"><ul>${headings.map(heading => `<li><a href="#${escape(heading.id)}">${escape(heading.text)}</a></li>`).join('')}</ul></nav>` : `<p>A short read, start to finish.</p>`}<div class="aside-author"><span class="eyebrow">About the author</span><p>Yiping Deng</p><span>Tech lead building AI & data infrastructure at HubSpot.</span><a class="text-link" href="/#about">More about me ${icon('arrow')}</a></div></aside></div>
+  <div class="article-layout"><article class="prose" aria-label="Article content">${body}</article><aside class="article-aside${headings.length ? ' has-contents' : ''}">${headings.length ? `<span class="eyebrow">On this page</span><nav aria-label="Article sections"><ul>${headings.map(heading => `<li><a href="#${escape(heading.id)}">${escape(heading.text)}</a></li>`).join('')}</ul></nav>` : ''}<div class="aside-author"><span class="eyebrow">About the author</span><p>Yiping Deng</p><span>Tech lead building AI & data infrastructure at HubSpot.</span><a class="text-link" href="/#about">More about me ${icon('arrow')}</a></div></aside></div>
   <div class="article-end"><span class="end-mark" aria-hidden="true">✳</span><p>Thanks for reading.</p><a class="text-link" href="/blog/">Back to the notebook ${icon('right')}</a></div></div>
   <section class="section related-section"><div class="container"><div class="section-heading"><div><p class="eyebrow">Keep exploring</p><h2>Another thread to follow.</h2></div></div><div class="post-grid">${related.map(postCard).join('')}</div></div></section>`;
 }

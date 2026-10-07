@@ -46,6 +46,8 @@ function filterPosts() {
   if (status) status.textContent = `${count} ${count === 1 ? 'article' : 'articles'}`;
   const empty = document.querySelector('#empty-state');
   if (empty) empty.hidden = count !== 0;
+  const reference = document.querySelector('[data-reference-card]');
+  if (reference) reference.hidden = selected !== 'all' || query !== '';
 }
 filters.forEach(button => button.addEventListener('click', () => {
   selected = button.dataset.filter;

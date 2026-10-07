@@ -6,7 +6,7 @@
   "email": "yiping.deng.98@gmail.com",
   "github": "https://github.com/DengYiping",
   "linkedin": "https://www.linkedin.com/in/yipingdeng/",
-  "intro": "I’m Yiping, a tech lead at HubSpot building the data platforms behind AI. I work across distributed systems, vector search, GPU infrastructure, and observability — turning complex systems into foundations people can build on.",
+  "intro": "I build the data platforms behind AI at HubSpot — from distributed systems and vector search to GPU infrastructure and observability.",
   "about": "My work sits where data infrastructure meets machine learning: the systems that collect, store, retrieve, and make sense of data at scale. At HubSpot, I’ve grown from an AI infrastructure engineer into a tech lead, building platforms and teams along the way.",
   "metrics": [
     { "value": "7B+", "label": "production ANN vectors", "detail": "RAG & semantic search" },

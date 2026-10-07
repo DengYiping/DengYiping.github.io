@@ -39,6 +39,36 @@ test('canonical and legacy direct article routes have the same complete content'
   }
 });
 
+test('all blog cards show the exact original article title', () => {
+  const archive = outputs.get('blog/index.html');
+  for (const post of content.posts) assert.ok(archive.includes(`<h3>${post.title}</h3>`), post.title);
+  assert.ok(!archive.includes('class="post-index"'));
+  assert.ok(archive.includes('data-reference-card'));
+});
+
+test('the hero identifies the engineer and current CV role without an availability indicator', () => {
+  const html = outputs.get('index.html');
+  assert.ok(html.includes('<p class="hero-name">Yiping Deng</p>'));
+  assert.ok(html.includes('Tech Lead II · AI Data · HubSpot'));
+  assert.ok(!html.includes('class="status-dot"'));
+  assert.ok(html.includes('Selected impact'));
+});
+
+test('responsive line breaks retain a space between the blog introduction sentences', () => {
+  assert.ok(outputs.get('blog/index.html').includes('underneath. <br>A small archive'));
+});
+
+test('article sidebar only shows a table of contents when the post has real headings', () => {
+  const withoutHeadings = outputs.get('blog/react-with-higher-order-component/index.html');
+  assert.ok(!withoutHeadings.includes('On this page'));
+  assert.ok(!withoutHeadings.includes('A short read, start to finish.'));
+  assert.ok(withoutHeadings.includes('About the author'));
+  const withHeadings = outputs.get('blog/complexity-and-correctness/index.html');
+  assert.ok(withHeadings.includes('On this page'));
+  assert.ok(withHeadings.includes('href="#complexity"'));
+  assert.ok(withHeadings.includes('href="#correctness"'));
+});
+
 test('CV download is the exact supplied PDF and is linked from every page', async () => {
   const pdf = await readFile(resolve(root, 'downloads/Yiping_Deng_Resume.pdf'));
   assert.equal(pdf.subarray(0, 4).toString(), '%PDF');
