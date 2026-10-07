@@ -21,5 +21,5 @@ const privateFile = await fetch(origin + '/.git/config');
 assert.equal(privateFile.status, 404);
 const redirect = await fetch(origin + '/blog', { redirect: 'manual' });
 assert.equal(redirect.status, 301);
-assert.equal(redirect.headers.get('location'), '/blog/');
+assert.equal(new URL(redirect.headers.get('location'), origin).href, new URL('/blog/', origin).href);
 console.log(`HTTP checks passed: ${routes.length} routes, exact CV bytes, 404, private paths, and directory redirect.`);
