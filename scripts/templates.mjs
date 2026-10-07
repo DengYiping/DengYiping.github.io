@@ -107,7 +107,15 @@ const experienceItem = job => `<article class="experience-item${job.current ? ' 
   <div class="experience-content"><p class="company">${escape(job.company)} <span> / ${escape(job.location)}</span></p><h3>${escape(job.role)}</h3><ul>${job.bullets.map(bullet => `<li>${escape(bullet)}</li>`).join('')}</ul></div>
 </article>`;
 
-export function home({ site, profile: p, posts }) {
+const projectCard = project => `<article class="project-card" data-project="${escape(project.repository)}">
+  <a class="project-card-link" href="${escape(project.url)}" target="_blank" rel="noopener noreferrer">
+    <div class="project-card-top"><span class="eyebrow">${escape(project.category)}</span>${icon('code')}</div>
+    <h3>${escape(project.title)}</h3><p>${escape(project.description)}</p>${tags(project.tags)}
+    <span class="project-card-footer">View on GitHub ${icon('arrow')}</span>
+  </a>
+</article>`;
+
+export function home({ site, profile: p, posts, projects }) {
   const education = p.education;
   return `<section class="hero container" aria-labelledby="hero-title">
     <div class="hero-copy">
@@ -124,6 +132,11 @@ export function home({ site, profile: p, posts }) {
   <section class="section container" id="work" aria-labelledby="work-title">
     <div class="section-heading"><div><p class="eyebrow section-number">01 / What I build</p><h2 id="work-title">The foundations<br>behind the possibilities.</h2></div><p>Reliable platforms. Thoughtful abstractions.<br>Room for the next big idea.</p></div>
     <div class="focus-grid">${p.focus.map(item => `<article class="focus-card"><div class="focus-card-top"><span>${item.number}</span>${icon(item.icon)}</div><h3>${escape(item.title)}</h3><p>${escape(item.description)}</p>${tags(item.tags)}</article>`).join('')}</div>
+  </section>
+  <section class="section container projects-section" id="projects" aria-labelledby="projects-title">
+    <div class="section-heading"><div><p class="eyebrow section-number">Selected projects / GitHub</p><h2 id="projects-title">Built out of curiosity.</h2></div><a class="text-link" href="${escape(p.github)}?tab=repositories" target="_blank" rel="noopener noreferrer">All repositories ${icon('arrow')}</a></div>
+    <p class="section-intro projects-intro">A few things I’ve built outside the day job — from GPU experiments and developer tools to useful little systems for everyday life.</p>
+    <div class="project-grid">${projects.map(projectCard).join('')}</div>
   </section>
   <section class="section experience-section" aria-labelledby="experience-title"><div class="container">
     <div class="section-heading"><div><p class="eyebrow section-number">02 / The journey</p><h2 id="experience-title">Built over time.</h2></div><a class="text-link" href="${site.cv}" download="Yiping_Deng_Resume.pdf">The full CV ${icon('download')}</a></div>

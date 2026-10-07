@@ -27,6 +27,10 @@ the expected CV digest in the tests when intentionally replacing the PDF.
 ## Editing
 
 - `content/profile.json`: CV-aligned biography, impact, experience, and skills.
+- `content/projects.json`: curated public GitHub projects, with descriptions and
+  technology tags checked against their READMEs and source. Learning labs and
+  experiments are separate from CV work. Builds use this local data and do not
+  call GitHub or depend on an API token.
 - `downloads/Yiping_Deng_Resume.pdf`: the original downloadable CV. Replace this
   file when updating the CV; also update the portfolio data.
 - `json/blogs.json` and `json/*.json`: the seven original blog posts, unchanged.

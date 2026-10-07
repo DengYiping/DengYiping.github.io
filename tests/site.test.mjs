@@ -86,6 +86,33 @@ test('the portfolio contains every CV role, skill and the supplied publication',
   for (const outdated of ['undergraduate student', 'Ubimax GmbH', 'y.deng@jacobs-university.de', '95%']) assert.ok(!html.includes(outdated), outdated);
 });
 
+test('six curated public projects render as accessible static repository links', () => {
+  const html = outputs.get('index.html');
+  assert.equal(content.projects.length, 6);
+  assert.equal(new Set(content.projects.map(project => project.repository)).size, 6);
+  assert.equal((html.match(/class="project-card"/g) || []).length, 6);
+  assert.ok(html.includes('id="projects" aria-labelledby="projects-title"'));
+  for (const project of content.projects) {
+    assert.equal(project.url, `https://github.com/DengYiping/${project.repository}`);
+    assert.ok(html.includes(`data-project="${project.repository}"`));
+    assert.ok(html.includes(`<h3>${project.title}</h3>`));
+    assert.ok(html.includes(`href="${project.url}" target="_blank" rel="noopener noreferrer"`));
+    assert.ok(html.includes(project.description));
+    for (const tag of project.tags) assert.ok(html.includes(`<li>${tag}</li>`));
+  }
+});
+
+test('project experiments are distinct from CV work and builds do not query GitHub', async () => {
+  const html = outputs.get('index.html');
+  assert.ok(html.includes('GPU learning lab'));
+  assert.ok(html.includes('Hardware experiment'));
+  assert.ok(html.includes('outside the day job'));
+  assert.ok(html.indexOf('id="projects"') < html.indexOf('id="experience-title"'));
+  const source = await readFile(resolve(root, 'scripts/build.mjs'), 'utf8');
+  assert.ok(source.includes("'content/projects.json'"));
+  assert.ok(!source.includes('fetch('));
+});
+
 test('all static local links and asset references resolve, including article illustrations', async () => {
   for (const [path, html] of outputs) {
     if (!path.endsWith('.html')) continue;

@@ -7,7 +7,7 @@ import { layout, home, archive, article, notes, escape } from './templates.mjs';
 const root = resolve(import.meta.dirname, '..');
 const readJSON = async path => JSON.parse(await readFile(resolve(root, path), 'utf8'));
 export async function loadContent() {
-  const [site, profile, original, metadata] = await Promise.all(['site.config.json', 'content/profile.json', 'json/blogs.json', 'content/posts.json'].map(readJSON));
+  const [site, profile, original, metadata, projects] = await Promise.all(['site.config.json', 'content/profile.json', 'json/blogs.json', 'content/posts.json', 'content/projects.json'].map(readJSON));
   if (process.env.SITE_URL) site.url = process.env.SITE_URL;
   const origin = new URL(site.url);
   if (origin.protocol !== 'https:' || origin.origin !== site.url) throw new Error('Site URL must be an HTTPS origin without a trailing slash or path.');
@@ -17,7 +17,7 @@ export async function loadContent() {
     return { ...post, ...extra, id, minutes: Math.max(1, Math.ceil(post.md.split(/\s+/).length / 200)) };
   }).sort((a, b) => b.date.localeCompare(a.date));
   if (new Set(posts.map(post => post.slug)).size !== posts.length) throw new Error('Post slugs must be unique.');
-  return { site, profile, posts };
+  return { site, profile, posts, projects };
 }
 
 // Only repository-owned Markdown is rendered at build time, never visitor input.

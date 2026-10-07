@@ -1,0 +1,50 @@
+[
+  {
+    "repository": "learning-cuda",
+    "title": "Learning CUDA",
+    "category": "GPU learning lab",
+    "description": "A hands-on GPU programming notebook: CUDA matrix-multiplication kernels, Triton exercises, and custom PyTorch extensions.",
+    "tags": ["CUDA", "Triton", "PyTorch"],
+    "url": "https://github.com/DengYiping/learning-cuda"
+  },
+  {
+    "repository": "codex-tool-mock",
+    "title": "Codex Tool Mock",
+    "category": "Agent tooling",
+    "description": "Mock shell-tool responses and verify expected commands with reusable fixtures, exact or regex matching, and pytest helpers.",
+    "tags": ["Python", "Testing", "Agent evaluation"],
+    "url": "https://github.com/DengYiping/codex-tool-mock"
+  },
+  {
+    "repository": "parquet-cat",
+    "title": "parquet-cat",
+    "category": "Data tooling",
+    "description": "A Rust CLI for exploring Parquet files on S3, including folders, SQL queries through DataFusion, and AWS profile support.",
+    "tags": ["Rust", "Apache Parquet", "DataFusion"],
+    "url": "https://github.com/DengYiping/parquet-cat"
+  },
+  {
+    "repository": "codebase-ai-prompt-generator",
+    "title": "Codebase Prompt Generator",
+    "category": "Developer experience",
+    "description": "Turn a Git repository into structured AI context, with a file tree, source contents, include/exclude patterns, and .gitignore support.",
+    "tags": ["Python", "CLI", "AI context"],
+    "url": "https://github.com/DengYiping/codebase-ai-prompt-generator"
+  },
+  {
+    "repository": "kindle-llm-usage",
+    "title": "Kindle LLM Usage",
+    "category": "Hardware experiment",
+    "description": "An e-ink dashboard for LLM usage and local coding-agent activity, with touch navigation, cached views, and explicit stale-data states.",
+    "tags": ["Python", "Lua", "E-ink"],
+    "url": "https://github.com/DengYiping/kindle-llm-usage"
+  },
+  {
+    "repository": "catlink-cli",
+    "title": "CatLink CLI",
+    "category": "Everyday automation",
+    "description": "A Python CLI for CatLink smart litter boxes: device status, logs, cleaning controls, and authentication backed by the system keyring.",
+    "tags": ["Python", "IoT", "CLI"],
+    "url": "https://github.com/DengYiping/catlink-cli"
+  }
+]
