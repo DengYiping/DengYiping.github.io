@@ -1,0 +1,50 @@
+{
+  "name": "Yiping Deng",
+  "role": "Tech Lead II · AI Data",
+  "company": "HubSpot",
+  "location": "Dublin, Ireland",
+  "email": "yiping.deng.98@gmail.com",
+  "github": "https://github.com/DengYiping",
+  "linkedin": "https://www.linkedin.com/in/yipingdeng/",
+  "intro": "I’m Yiping, a tech lead at HubSpot building the data platforms behind AI. I work across distributed systems, vector search, GPU infrastructure, and observability — turning complex systems into foundations people can build on.",
+  "about": "My work sits where data infrastructure meets machine learning: the systems that collect, store, retrieve, and make sense of data at scale. At HubSpot, I’ve grown from an AI infrastructure engineer into a tech lead, building platforms and teams along the way.",
+  "metrics": [
+    { "value": "7B+", "label": "production ANN vectors", "detail": "RAG & semantic search" },
+    { "value": "80%", "label": "less Spark support load", "detail": "AI-agent job auto-tuning" },
+    { "value": "2 TB", "label": "ingested every day", "detail": "AI inference & feedback" },
+    { "value": "$90K → $5K", "label": "monthly storage cost", "detail": "HBase migration" }
+  ],
+  "focus": [
+    { "number": "01", "title": "Data platforms", "description": "Modernizing Spark infrastructure, helping build Apache Iceberg infrastructure, and making a $6–7M/year Spark fleet’s costs visible.", "tags": ["Apache Spark", "Apache Iceberg", "Data lineage"], "icon": "layers" },
+    { "number": "02", "title": "AI infrastructure", "description": "Scaling vector search to 7B+ production ANN vectors across 200+ indices, and building inference and feedback pipelines that ingest 2 TB/day.", "tags": ["Vector search", "RAG", "GPU infrastructure"], "icon": "nodes" },
+    { "number": "03", "title": "Observable systems", "description": "Building OpenTelemetry tracing and storage for all AI agents at HubSpot, and using AI agents to analyze data-entity lineage graphs.", "tags": ["OpenTelemetry", "AI observability", "LLMOps"], "icon": "signal" }
+  ],
+  "experience": [
+    {
+      "company": "HubSpot", "location": "Dublin, Ireland", "role": "Tech Lead II · AI Data", "start": "Jun 2024", "end": "Present", "current": true,
+      "bullets": [
+        "Own and modernize Spark infrastructure; introduced AI-agent job auto-tuning, cutting Spark support load by 80%.",
+        "Built cost tracking for a $6–7M/year Spark fleet and helped build HubSpot’s Apache Iceberg infrastructure.",
+        "Built an OpenTelemetry tracing and storage system covering all AI agents at HubSpot; use AI agents to analyze data-entity lineage graphs.",
+        "Scaled vector infrastructure for RAG and semantic search to 7B+ production ANN vectors; current infrastructure supports 200+ indices.",
+        "Built AI inference/feedback pipelines ingesting 2 TB/day; introduced JupyterHub and NVIDIA DGX H100 infrastructure.",
+        "Grew the team to six people and helped establish two spin-out teams focused on JupyterHub and vector databases."
+      ]
+    },
+    { "company": "HubSpot", "location": "Dublin, Ireland", "role": "Tech Lead I · AI Data and MLOps", "start": "Mar 2023", "end": "Jun 2024", "bullets": ["Maintained a feature store aggregating internal APIs for AI model serving; implemented compliance workflows and scaled AI data collection across multiple data centres."] },
+    { "company": "HubSpot", "location": "Dublin, Ireland", "role": "Senior Software Engineer I · AI Infrastructure", "start": "Jan 2022", "end": "Mar 2023", "bullets": ["Cut monthly AI inference and feedback storage costs from $90K to $5K by migrating away from HBase."] },
+    { "company": "HubSpot", "location": "Dublin, Ireland", "role": "Software Engineer · AI Infrastructure", "start": "Oct 2020", "end": "Jan 2022", "bullets": ["Maintained Kubernetes GPU infrastructure serving 1B+ AI inferences/day and large-scale HBase storage for inference and feedback data.", "Standardized automated training pipelines for 6+ ML models, retrained weekly using user feedback."] },
+    { "company": "HubSpot", "location": "Dublin, Ireland", "role": "Software Engineer Intern · AI Infrastructure", "start": "Sep 2019", "end": "Aug 2020", "bullets": ["Implemented automated metrics and performance-tracking pipelines for ML models in the AI Infrastructure team."] },
+    { "company": "Amazon", "location": "Luxembourg", "role": "Software Development Engineer Intern", "start": "Jun 2019", "end": "Aug 2019", "bullets": ["Built an internal UI for technical program managers to review machine-translated product catalogue content."] },
+    { "company": "Jacobs University Bremen", "location": "Bremen, Germany", "role": "Research Assistant · Marine and Robotics Systems", "start": "Feb 2019", "end": "May 2019", "bullets": ["Researched autonomous-driving algorithms using ROS, OpenCV and PyTorch."] },
+    { "company": "Ubimax", "location": "Bremen, Germany", "role": "Software Engineer · Working Student", "start": "Jun 2018", "end": "May 2019", "bullets": ["Built a SqueezeNet training microservice for automotive use cases; deployed models to Google Glass Enterprise and Vuzix M300 with TensorFlow Lite."] }
+  ],
+  "education": { "degree": "BSc Computer Science", "minor": "Minor in Intelligent Systems", "school": "Jacobs University Bremen", "years": "2017–2020", "description": "Coursework in machine learning, algorithms, data structures, operating systems, and computer vision. Research in formal logic and marine robotics." },
+  "publication": { "title": "Hilbert Meets Isabelle: Formalisation of the DPRM Theorem in Isabelle", "date": "May 2018", "description": "Co-author · EasyChair Preprint 152", "url": "https://easychair.org/publications/preprint/GhvC" },
+  "openSource": { "title": "Qdrant", "description": "Four merged contributions to the open-source vector database: peer mTLS, HTTPS client-certificate validation, live TLS certificate rotation, and clustered-collection regression tests.", "url": "https://github.com/qdrant/qdrant/pulls?q=is%3Apr+is%3Amerged+author%3ADengYiping" },
+  "skills": [
+    { "label": "Languages & ML", "items": ["Python", "Java", "C++", "Rust", "Scala", "CUDA", "Triton", "PyTorch", "TensorFlow Lite"] },
+    { "label": "Data & infrastructure", "items": ["Apache Spark", "Apache Iceberg", "Kubernetes", "AWS", "Snowflake", "HBase", "Qdrant", "OpenTelemetry", "JupyterHub"] },
+    { "label": "Areas", "items": ["MLOps", "LLMOps", "RAG", "Vector search", "GPU programming", "AI observability", "Data pipelines", "Data lineage"] }
+  ]
+}

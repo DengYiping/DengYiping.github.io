@@ -1,0 +1,13 @@
+{
+  "name": "loudcoder",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Yiping Deng's portfolio and engineering notebook. Build-time rendered static HTML.",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/serve.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": { "node": ">=20.11" }
+}
