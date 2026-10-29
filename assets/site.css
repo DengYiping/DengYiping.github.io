@@ -452,3 +452,10 @@ html:not(.has-js) .menu-toggle,html:not(.has-js) .copy-code,html:not(.has-js) .a
   .project-card-link { padding: 25px; }
 }
 @media print{.site-header,.site-footer,.article-aside,.reading-progress,.copy-code,.related-section,.hero-actions,.contact-section,.system-card,.filters,.search-field{display:none!important}body{background:#fff;color:#000;font-size:11pt}.container{width:100%;max-width:none}.hero,.about-section,.article-layout{display:block}.hero,.section{padding-block:20px}.hero h1{font-size:38px}.section h2{font-size:28px}.experience-item{grid-template-columns:170px 1fr}.prose{font-size:11pt;color:#000}.prose pre{white-space:pre-wrap;overflow:visible;background:#eee;color:#000;font-size:9pt}.post-card,.focus-card,.contribution-card{break-inside:avoid}.earlier-experience>div{display:block!important}.article-header h1{font-size:28px}a{text-decoration:none}}
+
+/* Direct source links for open-source contributions. */
+.contribution-status{color:var(--green);font-size:var(--text-label);line-height:1.6;margin-bottom:14px}
+.contribution-links{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.contribution-links a{display:inline-flex;align-items:center;gap:8px;font-size:var(--text-label);line-height:1.6;text-decoration:underline;text-underline-offset:3px}
+.contribution-links .icon{width:15px;height:15px;flex-shrink:0}
+.contribution-links a:hover{color:var(--green)}

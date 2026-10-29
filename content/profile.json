@@ -41,7 +41,61 @@
   ],
   "education": { "degree": "BSc Computer Science", "minor": "Minor in Intelligent Systems", "school": "Jacobs University Bremen", "years": "2017–2020", "description": "Coursework in machine learning, algorithms, data structures, operating systems, and computer vision. Research in formal logic and marine robotics." },
   "publication": { "title": "Hilbert Meets Isabelle: Formalisation of the DPRM Theorem in Isabelle", "date": "May 2018", "description": "Co-author · EasyChair Preprint 152", "url": "https://easychair.org/publications/preprint/GhvC" },
-  "openSource": { "title": "Qdrant", "description": "Four merged contributions to the open-source vector database: peer mTLS, HTTPS client-certificate validation, live TLS certificate rotation, and clustered-collection regression tests.", "url": "https://github.com/qdrant/qdrant/pulls?q=is%3Apr+is%3Amerged+author%3ADengYiping" },
+  "openSource": [
+    {
+      "title": "Qdrant",
+      "status": "4 merged PRs",
+      "description": "Strengthened transport security with peer-to-peer mutual TLS, HTTPS client-certificate validation, and live TLS certificate rotation. Added regression coverage for recreating collections in cluster mode.",
+      "contributions": [
+        {
+          "label": "Peer mutual TLS · #1642",
+          "url": "https://github.com/qdrant/qdrant/pull/1642"
+        },
+        {
+          "label": "Client-certificate validation · #1663",
+          "url": "https://github.com/qdrant/qdrant/pull/1663"
+        },
+        {
+          "label": "TLS certificate rotation · #1808",
+          "url": "https://github.com/qdrant/qdrant/pull/1808"
+        },
+        {
+          "label": "Cluster collection regression test · #2442",
+          "url": "https://github.com/qdrant/qdrant/pull/2442"
+        }
+      ]
+    },
+    {
+      "title": "Apache Spark",
+      "status": "Accepted upstream + 4.0 / 4.1 backports",
+      "description": "Fixed repeated History Server compaction failures on malformed UTF-8 event logs (SPARK-59747). The server records the evaluated log index and warns once, retrying only after a new file rolls; regression tests preserve application listing and leave malformed logs uncompacted.",
+      "contributions": [
+        {
+          "label": "History Server fix · #58996",
+          "url": "https://github.com/apache/spark/pull/58996"
+        },
+        {
+          "label": "Spark 4.0 backport · #59620",
+          "url": "https://github.com/apache/spark/pull/59620"
+        },
+        {
+          "label": "Spark 4.1 backport · #59619",
+          "url": "https://github.com/apache/spark/pull/59619"
+        }
+      ]
+    },
+    {
+      "title": "OpenMetadata",
+      "status": "Merged PR",
+      "description": "Added the Cache Warmup application’s JSON schema to the UI, fixing a configuration editor that displayed undefined. The schema exposes entity selection, batch size, consumer threads, queue size, and the force option.",
+      "contributions": [
+        {
+          "label": "Cache Warmup configuration UI · #25938",
+          "url": "https://github.com/open-metadata/OpenMetadata/pull/25938"
+        }
+      ]
+    }
+  ],
   "skills": [
     { "label": "Languages & ML", "items": ["Python", "Java", "C++", "Rust", "Scala", "CUDA", "Triton", "PyTorch", "TensorFlow Lite"] },
     { "label": "Data & infrastructure", "items": ["Apache Spark", "Apache Iceberg", "Kubernetes", "AWS", "Snowflake", "HBase", "Qdrant", "OpenTelemetry", "JupyterHub"] },
